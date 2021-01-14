@@ -1,13 +1,12 @@
 const path = require('path');
+const webpack = require('webpack')
+
 
 module.exports = {
-  target: 'electron-renderer',
-  
+  target: 'electron-main',
   devServer: {
-    publicPath: /dist/,
-    proxy: {
-      '*': 'http://localhost:3000/'
-    }
+    publicPath: '/dist/',
+    hot: true
   },
 
   mode: process.env.NODE_ENV,
@@ -20,18 +19,20 @@ module.exports = {
   
   module: {
     rules: [
+    // {
+    //   test: /\.(ts|tsx)$/,
+    //   use: ['ts-loader']
+    // },
     {
-      test: /\.(ts|tsx)$/,
-      use: ['ts-loader']
-    },
-    {
-      test: /\.(js|jsx)$/,
+      test: /\.(js|jsx|ts|tsx)$/,
       // Exclude node modules because majority are ES5 compatible and it will save time to not go through all the modules to check for compatibility.
       exclude: /node_modules/,
-      use: ['react-loader', 'babel-loader'],
-      // options: {
-      //   presets: ['@babel/preset-env', '@babel/preset-react'],
-      // },
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env', '@babel/preset-react', "@babel/preset-typescript"],
+      },
+      options: { babelrc: true }
+ 
     },
       {
         test: /.(css|scss)$/,
@@ -39,12 +40,16 @@ module.exports = {
       },
     ]
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   // If multiple files share the same name but have different extensions, 
   //webpack will resolve the one with the extension listed first in the array and skip the rest.
   resolve: { 
-    extensions: ['.js', '.jsx', '.tsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx' ],
     fallback: {
           "path": require.resolve('path-browserify'),
         }
   }
 };
+
+
+
