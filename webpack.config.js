@@ -4,10 +4,16 @@ module.exports = {
   target: 'electron-renderer',
   
   devServer: {
-    publicPath: /dist/,
-    proxy: {
-      '*': 'http://localhost:3000/'
-    }
+    publicPath: '/dist/',
+    hot: true
+    //no proxy needed, because we are using electron
+    // proxy: {
+    //   //localhost replaced with wildcard [::1] as well as changeOrigin to get rid of bug that sends localhost to 8080
+    //   '*': 'http://[::1]:3000/'
+    // },
+    // changeOrigin: true,
+    // secure: false,
+
   },
 
   mode: process.env.NODE_ENV,
