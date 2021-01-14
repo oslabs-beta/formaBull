@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production electron ./main.ts",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development concurrently \"npx webpack-dev-server --open\" \"--env.target=render --hot --inline\"",
+    "dev": "cross-env NODE_ENV=development concurrently \"webpack serve --hot\" \"electron ./main.ts --hot\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "formaBull",
