@@ -1,18 +1,12 @@
-// import React from 'react';
-// import { render } from 'react-dom';
-const React = require('react')
-const { render } = require('react-dom')
-// require('@babel/register')({ extensions: ['.js', '.ts'] });
-
-// const mainElement = document.createElement('div');
-// document.body.appendChild(mainElement);
+import React from 'react';
+import { render } from 'react-dom';
 
 const App = () => {
   return (
     <div>
-    {/* <h1>
-      Hi from a react app
-    </h1> */}
+    <h1>
+     we won
+    </h1>
     </div>
   )
   
@@ -20,5 +14,4 @@ const App = () => {
 
 render(<App />, document.getElementById('root'));
 
-// export default App
-module.exports = App;
+export default App
