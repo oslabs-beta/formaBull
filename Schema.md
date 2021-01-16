@@ -1,0 +1,34 @@
+# FRONT END COMPONENT SCHEMA 
+
+- App
+  - Landing - MVP
+    - NavBar
+      - CreateFrom
+      - SavedFormsBtn
+      - Drafts
+      - TakeATour
+      - Settings
+      - Help
+    - LeftSideBar
+      - Edit
+      - Add
+        - DefaultForm(Drag&Drop) - MVP
+        - Input
+        - Button
+        - Checkbox
+        - Dropdown
+        - Email
+        - ...
+      - Style
+    - MainCanvas
+    - RightSideBar
+      - Code
+        - CodeCanvas
+      - CustomCSSTab
+      - ExpandCollapseTab
+      - ExportBtn
+      - SaveBtn
+  - SavedForms 
+  - Login
+  - SignUp
+  
