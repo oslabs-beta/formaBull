@@ -1,40 +1,48 @@
 {
-  "name": "formabull",
+  "name": "production",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production electron ./main.ts",
-    "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development concurrently \"webpack serve --hot\" \"electron ./main.ts --hot\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:electron": "NODE_ENV=development webpack --config webpack.electron.config.js --mode development && electron .",
+    "dev:react": "NODE_ENV=development webpack serve --config webpack.react.config.js --mode development",
+    "build:electron": "NODE_ENV=production webpack --config webpack.electron.config.js --mode production",
+    "build:react": "NODE_ENV=production webpack --config webpack.react.config.js --mode production",
+    "build": "npm run build:electron && npm run build:react",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "author": "formaBull",
+  "author": "",
   "license": "MIT",
+  "build": {
+    "files": [
+      "dist/",
+      "node_modules/",
+      "package.json"
+    ],
+    "productName": "example",
+    "appId": "com.example.app",
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "dependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "babel-loader": "^8.2.2",
-    "babel-preset-react": "^6.24.1",
-    "electron": "^11.1.1",
-    "path-browserify": "^1.0.1",
-    "react-hot-loader": "^4.13.0",
-    "typescript": "^4.1.3",
-    "webpack": "^5.13.0",
+    "electron": "^11.2.0",
+    "electron-builder": "^22.9.1",
+    "html-webpack-plugin": "^4.5.1",
+    "webpack": "^4.42.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
-    "constantly": "^0.1.4",
-    "cross-env": "^7.0.3",
-    "css-loader": "^5.0.1",
-    "express": "^4.17.1",
-    "morgan": "^1.10.0",
-    "path": "^0.12.7",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "sass-loader": "^10.1.1",
-    "style-loader": "^2.0.0",
-    "ts-loader": "^8.0.14"
   }
 }
