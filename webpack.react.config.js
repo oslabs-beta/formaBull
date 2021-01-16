@@ -7,7 +7,7 @@ module.exports = {
     mainFields: ["main", "module", "browser"],
 
   },
-  entry: "./app.tsx",
+  entry: "./client/containers/App.tsx",
   target: "electron-renderer", //if this is removed you can view your app on the localhost
   devtool: "source-map",
 
