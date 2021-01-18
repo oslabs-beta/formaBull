@@ -1,6 +1,6 @@
 ////////// LANDING ////////////
 
-.Landing {
+.landing {
   background-color: #F3F4F6;
   display: flex;
   width: 100vh;
@@ -8,7 +8,7 @@
   justify-content: column;
 }
 
-.sideBarsAndCanvas {
+.side-bars-and-canvas {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,15 +21,15 @@
 
 
 ////////// LeftSideBar ////////////
-.LeftSideBar {
+.left-side-bar {
   flex-grow: 1;
 }
 ////////// MainCanvas////////////
-.LeftSideBar {
+.left-side-bar {
   flex-grow: 3
 }
 ////////// RightSideBar ////////////
-.LeftSideBar {
+.right-side-bar {
   flex-grow: 1
 }
 
