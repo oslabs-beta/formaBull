@@ -1,12 +1,21 @@
-import React from 'react';
-import NavBar from '../components/NavBar';
+import React from 'react'
+import NavBar from '../components/NavBar'
+import LeftSideBar from '../components/LeftSideBar';
 import MainCanvas from '../components/MainCanvas';
+import RightSideBar from '../components/RightSideBar';
+
 export default function Landing (props: any) {
+
   return (
-    <div>
+    <div className = 'Landing'>
       {/* Use < /> for components invocation and {} for function invocation */}
       <NavBar />
-      <MainCanvas id="canvas" className="canvas" />
+      <div className ='sideBarsAndCanvas'>
+      <LeftSideBar />
+      <MainCanvas id="canvas" className="canvas"/>
+      <RightSideBar />
+      </div>
+
     </div>
   )
 }
