@@ -12,9 +12,10 @@ export default function Landing (props: any) {
       <NavBar />
       <div className ='sideBarsAndCanvas'>
       <LeftSideBar />
-      <MainCanvas />
+      <MainCanvas id="canvas" className="canvas"/>
       <RightSideBar />
       </div>
+
     </div>
   )
 }
