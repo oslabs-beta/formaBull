@@ -3,7 +3,7 @@ import React from 'react'
 export default function RightSideBar () {
 
   return(
-    <div className = 'RightSideBar'>
+    <div className = 'right-side-bar'>
       RightSideBar
     </div>
   )
