@@ -1,3 +1,32 @@
-body {
-  background-color: pink;
+////////// LANDING ////////////
+
+.Landing {
+  background-color: #F3F4F6;
+  display: flex;
+  width: 100vh;
+  height: 100vh;
+  justify-content: column;
+}
+
+.Outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 100%;
+  margin: 10px;
+}
+
+////////// NavBar ////////////
+////////// LeftSideBar ////////////
+.LeftSideBar {
+  flex-grow: 1;
+}
+////////// MainCanvas////////////
+.LeftSideBar {
+  flex-grow: 3
+}
+////////// RightSideBar ////////////
+.LeftSideBar {
+  flex-grow: 1
 }

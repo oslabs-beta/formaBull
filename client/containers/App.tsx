@@ -1,18 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import '../../style.scss'
+import Landing from './Landing'
 
 
 const App = () => {
   return (
     <div>
-    <h1>
-     fsffsdhgdg
-    </h1>
+    <Landing />
     </div>
   )
-  
-}
+};
 
 render(<App />, document.getElementById('root'));
 
