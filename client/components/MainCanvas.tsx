@@ -27,14 +27,14 @@ export default function MainCanvas (props:any) {
     return (
         <div 
           id={props.id}
-          className= 'MainCanvas'
+          className= 'main-canvas'
           //called when the button is dropped onto the canvas
           onDrop={drop}
           //called when one of the buttons is dragged over canvas
           onDragOver={dragOver}
         >
-          Canva
-          {/* //allows anything that we pass into the Canvas component to be a child of the canvas component */}
+          {/* allows anything that we pass into the Canvas component to be a child of the canvas component */}
+          {/* //Ex: <Canvas>...children...</Canvas> */}
           {props.children}
         </div>
     )

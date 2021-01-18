@@ -32,7 +32,7 @@ export default function LeftSideBar () {
   };
 
   return (
-      <div className = 'LeftSideBar'>
+      <div className = 'left-side-bar'>
     <Paper className={classes.root}>
       <Tabs
         value={value}

@@ -1,13 +1,13 @@
 ////////// LANDING ////////////
 
-.Landing {
+.landing {
   background-color: #F3F4F6;
   display: flex;
   height: 100vh;
   flex-direction: row;
 }
 
-.sideBarsAndCanvas {
+.side-bars-and-canvas {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,22 +20,30 @@
 
 
 ////////// LeftSideBar ////////////
-.LeftSideBar {
+.left-side-bar {
   flex-grow: 1;
   border: 1px solid black;
   max-width: 30%;
 }
 ////////// MainCanvas////////////
-.MainCanvas {
+.main-canvas {
   flex-grow: 3;
   border: 1px solid black;
   margin-left: 200px;
   width: 100%;
 }
 ////////// RightSideBar ////////////
-.RightSideBar {
+.right-side-bar {
   flex-grow: 1;
   border: 1px solid black;
   margin-left: 200px;
   width: 100%;
 }
+.left-side-bar {
+  flex-grow: 3
+}
+////////// RightSideBar ////////////
+.right-side-bar {
+  flex-grow: 1
+}
+
