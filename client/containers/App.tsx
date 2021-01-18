@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Landing from './Landing'
 import '../../style.scss'
 
 
-const App = () => {
+export default function App () {
   return (
     <div>
-    <h1>
-     fsffsdhgdg
-    </h1>
+    {/* Use < /> for components invocation and {} for function invocation */}
+      <Landing />
     </div>
   )
   
@@ -16,7 +16,6 @@ const App = () => {
 
 render(<App />, document.getElementById('root'));
 
-export default App
 
 
 
