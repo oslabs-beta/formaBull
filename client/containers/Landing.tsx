@@ -10,11 +10,12 @@ export default function Landing (props: any) {
     <div className = 'Landing'>
       {/* Use < /> for components invocation and {} for function invocation */}
       <NavBar />
-      <div className = 'outer'>
+      <div className ='sideBarsAndCanvas'>
       <LeftSideBar />
-      <MainCanvas />
+      <MainCanvas id="canvas" className="canvas"/>
       <RightSideBar />
       </div>
+
     </div>
   )
 }

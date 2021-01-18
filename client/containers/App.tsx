@@ -4,17 +4,17 @@ import '../../style.scss'
 import Landing from './Landing'
 
 
-const App = () => {
+export default function App () {
   return (
     <div>
-    <Landing />
+    {/* Use < /> for components invocation and {} for function invocation */}
+      <Landing />
     </div>
   )
 };
 
 render(<App />, document.getElementById('root'));
 
-export default App
 
 
 
