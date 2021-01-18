@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function NavBar (props:any) {
+  const [isOpen, setOpen] = useState(false);
   
   return (
-    <div className="Navbar">
-    <a>Create Form</a>
-    <a>Saved Forms</a>
-    <a>Drafts</a>
-    <a>Take a tour</a>
-    <a>Settings</a>
-    <a>Help</a>    </div>
+    <div className="navbar">
+      <div className="brand">formaBull</div> 
+      <div className="navlink">
+        <NavLink className='navlink' to='/'>Create Form</NavLink>
+      </div>
+      <div className="navlink">
+        <NavLink className='navlink' to='/savedforms'>Saved Forms</NavLink>
+      </div>
+      <div className="navlink"><a>Drafts</a></div>
+      <div className="navlink"><a>Take a tour</a></div>
+      <div className="navlink"><a>Settings</a></div>
+      <div className="navlink"><a>Help</a></div>
+    </div>
   )
 }
 
