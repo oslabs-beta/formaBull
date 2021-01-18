@@ -8,19 +8,16 @@ import Tab from '@material-ui/core/Tab';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1, //From material-ui.com
-    // width: '80%',
-    minWidth: 20,
-    // marginRight: theme.spacing(4)
   },
 });
 
-// const Tab = withStyles((theme: Theme) =>
+// const eachTab = withStyles((theme: Theme) =>
 //   createStyles({
 //     root: {
 //       textTransform: 'none',
 //       minWidth: 72,
 //       fontWeight: theme.typography.fontWeightRegular,
-//       marginRight: theme.spacing(4)
+      // marginRight: theme.spacing(4)
 //     }
 //   })
 // )
@@ -35,7 +32,6 @@ export default function LeftSideBar () {
   };
 
   return (
-    <div className = 'sideBarsAndCanvas'>
       <div className = 'LeftSideBar'>
     <Paper className={classes.root}>
       <Tabs
@@ -51,7 +47,6 @@ export default function LeftSideBar () {
       </Tabs>
     </Paper>
       </div>
-    </div>
   );
 }
 

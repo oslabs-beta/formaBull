@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MainCanvas (props:any) {
     //drop event
-    const drop = el => {
+    const drop = (el:any) => {
       //cancels the event if it is cancable, meaning that the default action that belongs to the event will not occur.
       el.preventDefault();
       //get form attribute(item to be dropped), pass in a "key" to getData, make sure to use the same when setting the data
@@ -17,7 +17,7 @@ export default function MainCanvas (props:any) {
     }
 
     //drag over event
-    const dragOver = el => {
+    const dragOver = (el:any) => {
       //cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
       el.preventDefault()
 
@@ -27,14 +27,14 @@ export default function MainCanvas (props:any) {
     return (
         <div 
           id={props.id}
-          className={props.className}
+          className= 'MainCanvas'
           //called when the button is dropped onto the canvas
           onDrop={drop}
           //called when one of the buttons is dragged over canvas
           onDragOver={dragOver}
         >
-          //allows anything that we pass into the Canvas component to be a child of the canvas component
-          //Ex: <Canvas>...children...</Canvas>
+          Canva
+          {/* //allows anything that we pass into the Canvas component to be a child of the canvas component */}
           {props.children}
         </div>
     )
