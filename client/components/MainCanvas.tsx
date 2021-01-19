@@ -62,5 +62,4 @@ export default function MainCanvas (props:any) {
           {props.children}
         </div>
     )
-}
-
+    }
