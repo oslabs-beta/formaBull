@@ -12,10 +12,10 @@ export default function MainCanvas (props:any) {
 
     //turn canvas into droppable target by using useDrop hook
       //returns addedProps drop will be used as a ref
-    const[{addedProps}, drop] = useDrop({
-      //need to specify what type of item to accept
-      accept: 
-    });
+    // const[{addedProps}, drop] = useDrop({
+    //   //need to specify what type of item to accept
+    //   accept: 
+    // });
     // //drop event
     // const drop = el => {
     //   //cancels the event if it is cancable, meaning that the default action that belongs to the event will not occur.
