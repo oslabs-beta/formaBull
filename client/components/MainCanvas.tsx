@@ -7,7 +7,7 @@ export default function MainCanvas (props:any) {
       //returns addedProps drop will be used as a ref
     const[{addedProps}, drop] = useDrop({
       //need to specify what type of item to accept
-      accept: ItemTypes
+      accept: 
     });
     // //drop event
     // const drop = el => {
@@ -35,18 +35,18 @@ export default function MainCanvas (props:any) {
     return (
         <div
           //attaches the drop ref to the MainCanvas
-          ref={drop}
+        //   ref={drop}
           id={props.id}
           className={props.className}
         //   //called when the button is dropped onto the canvas
         //   onDrop={drop}
         //   //called when one of the buttons is dragged over canvas
         //   onDragOver={dragOver}
-          className='main-canvas'
-          //called when the button is dropped onto the canvas
-          onDrop={drop}
-          //called when one of the buttons is dragged over canvas
-          onDragOver={dragOver}
+        //   className='main-canvas'
+        //   //called when the button is dropped onto the canvas
+        //   onDrop={drop}
+        //   //called when one of the buttons is dragged over canvas
+        //   onDragOver={dragOver}
         >
           MainCanvas
           {/* allows anything that we pass into the Canvas component to be a child of the canvas component */}
