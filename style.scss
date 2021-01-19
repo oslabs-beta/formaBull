@@ -3,18 +3,17 @@
 .landing {
   background-color: #F3F4F6;
   display: flex;
-  width: 100vh;
   height: 100vh;
-  justify-content: column;
+  flex-direction: row;
 }
 
 .side-bars-and-canvas {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid black;
+  height: 80vh;
   width: 100%;
-  margin: 10px;
+  margin-top: 50px
 }
 
 ////////// NavBar ////////////
@@ -23,8 +22,23 @@
 ////////// LeftSideBar ////////////
 .left-side-bar {
   flex-grow: 1;
+  border: 1px solid black;
+  max-width: 30%;
 }
 ////////// MainCanvas////////////
+.MainCanvas {
+  flex-grow: 3;
+  border: 1px solid black;
+  margin-left: 200px;
+  width: 100%;
+}
+////////// RightSideBar ////////////
+.RightSideBar {
+  flex-grow: 1;
+  border: 1px solid black;
+  margin-left: 200px;
+  width: 100%;
+}
 .left-side-bar {
   flex-grow: 3
 }

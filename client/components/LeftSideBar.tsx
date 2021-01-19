@@ -5,14 +5,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 // Override style by adding to the withStyles() higher-order component to inject custom styles into the DOM, and to pass the class name to the ClassNames component via its classes property.
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1, //From material-ui.com
-    // width: '80%',
-    minWidth: 20,
-    // marginRight: theme.spacing(4)
   },
-});
+}));
 
 // const Tab = withStyles((theme: Theme) =>
 //   createStyles({
@@ -35,7 +32,6 @@ export default function LeftSideBar () {
   };
 
   return (
-    <div className = 'side-bars-and-canvas'>
       <div className = 'left-side-bar'>
     <Paper className={classes.root}>
       <Tabs
@@ -50,7 +46,6 @@ export default function LeftSideBar () {
         <Tab label="Item Three" />
       </Tabs>
     </Paper>
-      </div>
     </div>
   );
 }
