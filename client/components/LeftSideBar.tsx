@@ -46,7 +46,7 @@ export default function LeftSideBar () {
         <Tab label="Item Three" />
       </Tabs>
     </Paper>
-    </div>
+      </div>
   );
 }
 

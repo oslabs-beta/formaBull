@@ -1,49 +1,50 @@
 ////////// LANDING ////////////
-
 .landing {
   background-color: #F3F4F6;
   display: flex;
   height: 100vh;
-  flex-direction: row;
+  flex-direction: column;
 }
-
 .side-bars-and-canvas {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 80vh;
   width: 100%;
-  margin-top: 50px
+  margin-top: 80px;
+  flex-wrap: nowrap;
 }
-
 ////////// NavBar ////////////
+.navbar {
+  display: flex;
+  flex-direction:row;
+  border: 1px solid black;
+  padding: 5px;
+}
+.navbar div {
+  margin-right: 30px;
+}
 
 
 ////////// LeftSideBar ////////////
 .left-side-bar {
   flex-grow: 1;
   border: 1px solid black;
-  max-width: 30%;
+  max-width: 25%;
 }
 ////////// MainCanvas////////////
-.MainCanvas {
+.main-canvas {
   flex-grow: 3;
   border: 1px solid black;
-  margin-left: 200px;
-  width: 100%;
-}
-////////// RightSideBar ////////////
-.RightSideBar {
-  flex-grow: 1;
-  border: 1px solid black;
-  margin-left: 200px;
-  width: 100%;
-}
-.left-side-bar {
-  flex-grow: 3
+  width: 50%;
+  margin-left: 50px;
+  
 }
 ////////// RightSideBar ////////////
 .right-side-bar {
-  flex-grow: 1
+  flex-grow: 1;
+  border: 1px solid black;
+  width: 25%;
+  margin-left: 50px;
 }
 
