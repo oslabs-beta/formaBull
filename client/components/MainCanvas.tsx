@@ -9,7 +9,7 @@ export default function MainCanvas (props:any) {
       //get form attribute(item to be dropped), pass in a "key" to getData, make sure to use the same when setting the data
       const formButton_id = el.dataTransfer.getData('formButton_id')
       const button = document.getElementById(formButton_id);
-
+    }
     //turn canvas into droppable target by using useDrop hook
       //returns addedProps drop will be used as a ref
     // const[{addedProps}, drop] = useDrop({
@@ -37,15 +37,15 @@ export default function MainCanvas (props:any) {
     //   //cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
     //   el.preventDefault()
 
-    // }
+    }
 
 
     return (
-        <div
+        <div 
           //attaches the drop ref to the MainCanvas
         //   ref={drop}
           id={props.id}
-          className={props.className}
+          className={'main-canvas'}
         //   //called when the button is dropped onto the canvas
         //   onDrop={drop}
         //   //called when one of the buttons is dragged over canvas
