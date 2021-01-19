@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -20,6 +21,43 @@ export default function NavBar (props:any) {
     </div>
   )
 }
+
+// import ToolbarComponent from "./components/Toolbar/Toolbar";
+// import DrawerComponent from "./components/Drawer/Drawer";
+
+// export default function NavBar (props:any) {
+//   state = {
+//     left: false
+//   };
+
+//   toggleDrawer = () => {
+//     // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+//     //   return;
+//     // }
+
+//     this.setState({ left: false });
+//   };
+
+//   openDrawer = () => {
+//     this.setState({
+//       left: true
+//     });
+//   };
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <ToolbarComponent openDrawerHandler={this.openDrawer} />
+//         <DrawerComponent
+//           left={this.state.left}
+//           toggleDrawerHandler={this.toggleDrawer}
+//         />
+//       </div>
+//     );
+//   }
+// }
+
+
 
 
 
