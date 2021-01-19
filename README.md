@@ -1,25 +1,37 @@
 # formaBull
+![formaBull logo](./assets/formabull_logo_whitebg.png)
 
-## Title
-image
+Forms with React and Hooks simplified: Drag & Drop -> Click, Done.
 <!-- Buttons for authenticity: https://shields.io/ -->
 
 ## Description
-with words and images
+formaBull is an Electron application for React Developers who want to quickly generate forms.  You can create the shape of your forms by dragging elements in, and style them in-app by adjusting sliders in the Style tab.  Forms will be saved to your account, and you can switch among them as needed.
 
 ## Technologies Used
+React, Typescript, Electron, VS Code
 
-## Special Concerns
-problems we faced
-unique elements of this project
-features that aren't working in this build
+## What Needs Work?
+Currently, we are serving a default form.  Customization to come.<br>
+Authentication is not yet implemented.  Using the app now takes you directly to the Landing page.
 
 ## Technical Description
-how to install,
-Fork this repository, copy the code from your repo clone, open your command line and navigate to the parent folder you want to install,
-run `git clone http://code`, navigate into formaBull folder `cd formaBull`, run `npm install`, allow .gitignore to be ignored, run `npm start`.
-setup,
-contribute
+To run this app, do the following:
+* Fork this repository, copy the code from your repo clone, open your command line in VS Code and navigate to the parent folder you want to install,
+* run `git clone https://github.com/<YOURNAME>/formaBull.git`, 
+* navigate into formaBull folder `cd formaBull`, 
+* run `npm install`,
+* run `npm run build`,
+* run `npm run pack`.
+<br>
+If running as a developer, you will need two open two terminals. After running npm install,
+* run `npm run dev:react` in one terminal,
+* and run `npm run dev:electron` in the other terminal. 
+
+### Developers:
+  * Courtney Doss @catalyst-777
+  * Mario Eldin @Sector88
+  * Max Nikitin @nikitinmax2300
+  * Windu Sayles @windusayles
 
 <!-- Readme example: https://github.com/silent-lad/VueSolitaire -->
 <!-- Github Flavored Markdown: https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf -->

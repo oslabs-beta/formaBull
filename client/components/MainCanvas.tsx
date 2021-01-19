@@ -2,6 +2,13 @@ import React from 'react';
 import { useDrop } from 'react-dnd';
 
 export default function MainCanvas (props:any) {
+    //drop event
+    const drop = (el:any) => {
+      //cancels the event if it is cancable, meaning that the default action that belongs to the event will not occur.
+      el.preventDefault();
+      //get form attribute(item to be dropped), pass in a "key" to getData, make sure to use the same when setting the data
+      const formButton_id = el.dataTransfer.getData('formButton_id')
+      const button = document.getElementById(formButton_id);
 
     //turn canvas into droppable target by using useDrop hook
       //returns addedProps drop will be used as a ref
@@ -20,9 +27,10 @@ export default function MainCanvas (props:any) {
     //   //hide the button when first tracking to give appearance of picking up the button
     //   button.style.display = 'block';
 
-    //   //target is the canvas, allows button to be appended to canvas
-    //   el.target.appendChild(button);
-    // }
+    //drag over event
+    const dragOver = (el:any) => {
+      //cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+      el.preventDefault()
 
     // //drag over event
     // const dragOver = el => {
