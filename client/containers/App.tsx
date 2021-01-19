@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Landing from './Landing'
 import '../../style.scss'
+import Landing from './Landing'
 
 
 export default function App () {
@@ -11,8 +11,7 @@ export default function App () {
       <Landing />
     </div>
   )
-  
-}
+};
 
 render(<App />, document.getElementById('root'));
 
