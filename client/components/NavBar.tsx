@@ -234,49 +234,6 @@ export default function NavBar() {
   );
 }
 
-<<<<<<< HEAD
-// import ToolbarComponent from "./components/Toolbar/Toolbar";
-// import DrawerComponent from "./components/Drawer/Drawer";
-
-// export default function NavBar (props:any) {
-//   state = {
-//     left: false
-//   };
-
-//   toggleDrawer = () => {
-//     // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-//     //   return;
-//     // }
-
-//     this.setState({ left: false });
-//   };
-
-//   openDrawer = () => {
-//     this.setState({
-//       left: true
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <div className="App">
-//         <ToolbarComponent openDrawerHandler={this.openDrawer} />
-//         <DrawerComponent
-//           left={this.state.left}
-//           toggleDrawerHandler={this.toggleDrawer}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-
-
-
-
-
-=======
->>>>>>> 8b03856814fdd93aaab15d6170a376d624862c61
 
 // Navbar should have links for the landing page to load.  I'm thinking the CreateAForm page would be the main landing page.  Saved Forms loads a different looking landing page, same with Help, TakeATour/Tutorial, etc.  The main app file will determine if a person is logged in. If so, they're directed to the landing page.  If not, they're directed to the Login Page.  From Login page, a person can click "Sign Up", which would take them to a separate, albeit similar looking, page. Sign up routes back to Log in, or automatically to Landing page.
 // const NavBar = () => {
