@@ -4,7 +4,9 @@ import { CopyBlock, dracula, nord, monokai } from "react-code-blocks";
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
-// console.log(JSON.stringify({DefaultForm}))
+// import jsxToString from 'jsx-to-string';
+
+// console.log(jsxToString(DefaultForm));
 const sampleJSX = `import React from "react";
 import { useForm } from "react-hook-form";
 

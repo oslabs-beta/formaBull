@@ -32,6 +32,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "fontsource-roboto": "^4.0.0",
+    "jsx-to-string": "^1.4.0",
     "react": "^17.0.1",
     "react-code-blocks": "0.0.8",
     "react-dom": "^17.0.1",
