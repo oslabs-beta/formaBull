@@ -13,15 +13,18 @@ import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/icons/Menu';
 import { Icon } from '@material-ui/core';
+import { NavLink, withRouter } from 'react-router-dom';
+// import Routes from '../../routes/Routes';
+import{ navLinks } from '../../routes/Routes'
 
-
+console.log(navLinks)
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     flexGrow: 1,
   },
   list: {
-    width: 250,
+    width: 350,
   },
   fullList: {
     width: 'auto',
@@ -60,16 +63,30 @@ export default function MenuDrawer() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['Create Form', 'Saved Forms', 'Drafts', 'Take a Tour', 'Settings', 'Help'].map((text, index) => (
-          <ListItem button key={text}>
+      <List component="nav" aria-labelledby="main navigation">
+    {navLinks.map(({ title, path }, index) => (
+      <a href={path} key={title} style={{ color: 'inherit',textDecoration: 'none' }}>
+        <ListItem button key={title}>
+        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+          <ListItemText primary={title} />
+        </ListItem>
+      </a>
+    ))}
+  </List>
+  {/*  */}
+  {/* <List component="nav" aria-labelledby="main navigation">
+    {navLinks.map(({ title, path }, index) => (
+      <a href={path} key={title}>
+        <ListItem button key={title}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={title} />
           </ListItem>
+          </a>
         ))}
-      </List>
+      </List> */}
     </div>
   );
+
 
   return (
     <div>
@@ -81,9 +98,10 @@ export default function MenuDrawer() {
             color="inherit"
             aria-label="open drawer"
             onClick={toggleDrawer(anchor, true)}
-            
-          >{anchor}</IconButton>
-          {/* <MenuIcon /> */}
+          >
+          {anchor}
+          <MenuIcon />
+          </IconButton>
           {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
