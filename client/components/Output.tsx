@@ -54,7 +54,7 @@ export default function Output() {
         text={sampleWithImports}
         showLineNumbers={true}
         codeBlock
-        language="js"
+        language= "tsx"
         theme={dracula}
         highlight = {true}
       />
