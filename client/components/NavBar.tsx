@@ -2,16 +2,16 @@
 // import { NavLink } from 'react-router-dom';
 
 // export default function NavBar (props:any) {
-  //   const [isOpen, setOpen] = useState(false);
+//     const [isOpen, setOpen] = useState(false);
   
-  //   return (
-    //     <div className="navbar">
-    //       <div className="brand">formaBull</div> 
-    //       <div className="navlink">
-    //         <NavLink className='navlink' to='/'>Create Form</NavLink>
-    //       </div>
-    //       <div className="navlink">
-    //         <NavLink className='navlink' to='/savedforms'>Saved Forms</NavLink>
+//     return (
+//         <div className="navbar">
+//           <div className="brand">formaBull</div> 
+//           <div className="navlink">
+//             <NavLink className='navlink' to='/'>Create Form</NavLink>
+//           </div>
+//           <div className="navlink">
+//             <NavLink className='navlink' to='/savedforms'>Saved Forms</NavLink>
 //       </div>
 //       <div className="navlink"><a>Drafts</a></div>
 //       <div className="navlink"><a>Take a tour</a></div>
@@ -22,7 +22,7 @@
 // }
 
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -32,6 +32,18 @@ import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import MenuDrawer from './MenuDrawer'
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import clsx from 'clsx';
+
+
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,6 +56,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     menuButton: {
       marginRight: theme.spacing(2),
+    },
+    list: {
+      width: 250,
+    },
+    fullList: {
+      width: 'auto',
     },
     title: {
       flexGrow: 1,
@@ -95,21 +113,87 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function NavBar() {
+
   const classes = useStyles();
+  const [isOpen, setOpen] = useState(false);
+  const buttonRef = useRef(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+
+
+  const handleClick = () => {
+    setAnchorEl(buttonRef.current);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  // const toggleDrawer = () => {
+  //   setOpen(false)
+  //   console.log('toggle')
+  // };
+
+  // const openDrawer = () => {
+  //   setOpen({open: true})
+  //   console.log('drawer open')
+  // };
+
+
+  // type Anchor = 'left';
+
+
+  //   const toggleDrawer = (open: boolean) => (
+  //   event: React.KeyboardEvent | React.MouseEvent,
+  // ) => {
+  //   if (
+  //     event.type === 'keydown' &&
+  //     ((event as React.KeyboardEvent).key === 'Tab' ||
+  //       (event as React.KeyboardEvent).key === 'Shift')
+  //   ) {
+  //     return;
+  //   }
+
+  //   setOpen( open );
+  // };
+
+  const list = () => (
+    <div
+      className={clsx(classes.list)}
+      role="presentation"
+      // onClick={toggleDrawer(false)}
+      // onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {['Create Form', 'Saved Forms', 'Drafts', 'Take a Tour', 'Settings', 'Help'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+  </div>
+
+  )
+// console.log(isOpen)
 
   return (
     <div className={classes.root}>
-      <div >
+      
       <AppBar className={classes.backgroundColor} position="static">
         <Toolbar>
-          <IconButton
+          <MenuDrawer />
+          {/* MenuDrawer IMPORT */}
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+            onClick={handleClick}
+            ref={buttonRef}
+          > */}
+            {/* <MenuIcon /> */}
+          {/* </IconButton> */}
           <Typography className={classes.title} variant="h6" noWrap>
             formaBull
           </Typography>
@@ -128,7 +212,24 @@ export default function NavBar() {
           </div>
         </Toolbar>
       </AppBar>
-      </div>
+      {/* <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center"
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center"
+        }}
+      > */}
+      {/* <Drawer/>
+        {list()}
+      <Drawer />
+      </Popover> */}
+      
     </div>
   );
 }
