@@ -10,7 +10,7 @@ export default function DefaultForm() {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   const onSubmit = data => console.log(data);
 
-  console.log(watch("example")) // watch input value by passing the name of it
+  console.log(watch("exambcbgdgdple")) // watch input value by passing the name of it
 
   return (
     <div className = 'default-form'>

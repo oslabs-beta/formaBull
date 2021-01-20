@@ -6,7 +6,7 @@ import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
 // import jsxToString from 'jsx-to-string';
 
-// console.log(jsxToString(DefaultForm));
+console.log(DefaultForm.toString());
 const sampleJSX = `import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -44,18 +44,24 @@ export default function DefaultForm() {
 }
 `
 
+
+const sampleWithImports = `import React from "react"; \nimport { useForm } from "react-hook-form"; \n\n${DefaultForm}`;
 export default function Output() {
   return (
     <ScrollToBottom>
     <div className = 'output'>
       <CopyBlock 
-        text={sampleJSX}
+        text={sampleWithImports}
         showLineNumbers={true}
         codeBlock
-        language="typescript"
+        language="js"
         theme={dracula}
+        highlight = {true}
       />
     </div>
     </ScrollToBottom>
   );
 }
+
+
+
