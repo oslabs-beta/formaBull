@@ -23,7 +23,7 @@
 
 
 import React, { useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -41,9 +41,17 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import clsx from 'clsx';
+import Routes from '../../routes/Routes';
 
 
 
+// export const navLinks = [
+//   { title: `Create Form`, path: `/` },
+//   { title: `Saved Forms`, path: `/savedforms` },
+//   { title: `Drafts`, path: `/drafts` },
+//   { title: `Contact`, path: `/contact` },
+//   { title: `Help`, path: `/` },
+// ]
 
 
 const useStyles = makeStyles((theme: Theme) =>
