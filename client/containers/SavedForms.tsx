@@ -4,7 +4,7 @@ export default function SavedForms () {
 
   return(
     <div className = 'savedforms'>
-      Saved Forms
+      <h1 style={{textAlign: "center", paddingBottom: '400px'}} >Saved Forms</h1>
     </div>
   )
 }
