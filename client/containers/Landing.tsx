@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar'
 import LeftSideBar from '../components/LeftSideBar';
 import MainCanvas from '../components/MainCanvas';
 import RightSideBar from '../components/RightSideBar';
-import Card from '../components/Cards';
 import SavedForms from './SavedForms';
 import { BrowserRouter, Router, Switch, Route } from 'react-router-dom';
 
@@ -23,7 +22,7 @@ export default function Landing (props: any) {
             <RightSideBar />
           </div>
           <div className='cards'>
-      <Card />
+   
       </div>
         </Route>
         <Route path='/savedforms'>
