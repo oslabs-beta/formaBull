@@ -13,15 +13,18 @@ export default function Landing (props: any) {
     <BrowserRouter>
     <div className = 'landing'>
       <NavBar />
+      
       {/* Use < /> for components invocation and {} for function invocation */}
       <Switch>
         <Route exact path='/'>
           <div className ='side-bars-and-canvas'>
             <LeftSideBar />
-            <Card />
             <MainCanvas id="canvas" className="canvas"/>
             <RightSideBar />
           </div>
+          <div className='cards'>
+      <Card />
+      </div>
         </Route>
         <Route path='/savedforms'>
           <SavedForms />
