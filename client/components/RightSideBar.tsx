@@ -3,6 +3,7 @@ import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/s
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import Output from './Output';
 
 
 interface StyledTabsProps {
@@ -73,6 +74,7 @@ export default function RightSideBar() {
   };
 
   return (
+    <div>
     <div className={classes.root}>
       {/* classes.backgroundColor hook being used for a specific div */}
       <div className={classes.backgroundColor}>
@@ -82,6 +84,8 @@ export default function RightSideBar() {
         </StyledTabs>
         <Typography className={classes.padding} />
       </div>
+    </div>
+    <Output />
     </div>
   );
 }

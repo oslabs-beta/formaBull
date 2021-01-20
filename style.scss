@@ -28,6 +28,7 @@
 
 
 ////////// LeftSideBar ////////////
+
 .left-side-bar {
   flex-grow: 1;
   border: 1px solid black;
@@ -112,4 +113,12 @@
         transition: 0.3s all;
       }
 
+}
+
+//////OUTPUT////////
+
+.output {
+  min-width: 325px;
+  max-width: 500px;
+  font-family: 'Monaco'
 }
