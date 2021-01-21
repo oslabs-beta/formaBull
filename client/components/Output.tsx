@@ -50,8 +50,8 @@ export default function Output() {
   console.log(state); // an array of the components
   let test = '';
   //do logic to turn state into a string.
-  for (let i = 0; i < state.length; i++) {
-    test += state[i] + '\n\n';
+  for (let i = 0; i < state.componentsToDisplay.length; i++) {
+    test += state.componentsToDisplay[i] + '\n\n';
   };
 
   return (

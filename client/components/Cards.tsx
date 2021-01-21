@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
 import Cards from './Cards';
 import DefaultForm from './DefaultForm';
-
+import ContextProvider from '../containers/ContextProvider';
 
 
 export default function CardCreator(props:any) {
@@ -32,11 +32,13 @@ export default function CardCreator(props:any) {
         isDragging: !!monitor.isDragging(),
     })
 });
-
-
+    const state = useContext(ContextProvider);
+    const compos = state.componentOptions;
+    const composone = compos[0];
+    console.log('state', compos, 'test')
     return (
         // <Card 
-        // ref={drag} 
+        // ref={drag}
         // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
         // <Card.Body>
         //     <Card.Title>Test</Card.Title>
@@ -44,12 +46,14 @@ export default function CardCreator(props:any) {
         //     All I want is Drag and Drop functionality
         //     </Card.Text>
         //     <Button variant="primary">Do Something</Button>
-        // </Card.Body>
+        // </Card.Body> 
         // </Card>
-        <>
+        // <>
         <div ref={drag} style={{ fontSize: '14px', opacity: isDragging ? 0.5 : 1}} >
-            <DefaultForm /> 
+            <p>Hello</p>
         </div>
-        </>
+        // <div>
+        //     {/* array of Cards */}
+        // </div>
     )
 }

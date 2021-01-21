@@ -11,7 +11,7 @@ export default function App () {
   const state = useContext(AppContext)
   return (
     <div>
-      <AppContext.Provider value={state.componentsToDisplay}>
+      <AppContext.Provider value={state}>
       <DndProvider backend={HTML5Backend}>
     {/* Use < /> for components invocation and {} for function invocation */}
       <Landing />
@@ -22,7 +22,6 @@ export default function App () {
 };
 
 render(<App />, document.getElementById('root'));
-
 
 
 

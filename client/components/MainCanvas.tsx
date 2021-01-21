@@ -3,6 +3,7 @@ import { useDrop, DropTargetMonitor } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
 import DefaultForm from './DefaultForm';
 
+
 export default function MainCanvas () {
   //turn canvas into droppable target by using useDrop hook
   //returns addedProps drop will be used as a ref

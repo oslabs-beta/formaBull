@@ -4,15 +4,20 @@ interface AppContextInterface {
   componentsToDisplay: Symbol,
 }
 
-function NameComponent () {
-  let name = '';
-  const variablename = [3, 'string'];
-  const four = 4;
-}
+//define components that we want to drag from LeftSideBar
+const compOptions = [
+  function NameComponent () {
+    let firstName = '';
+  },
+  function AgeComponent () {
+    let age = 20;
+  }
+
+]
 
 /// Initial state////
 const AppContext = React.createContext({
-  componentsToDisplay: [() => console.log('test'), () => console.log('second test'), NameComponent],
-  
+  componentsToDisplay: [compOptions[0]],
+  componentOptions: [...compOptions],
 });
 export default AppContext;

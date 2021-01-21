@@ -4,6 +4,7 @@ import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/s
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+// import AppContext from '../containers/ContextProvider';
 
 
 interface StyledTabsProps {
