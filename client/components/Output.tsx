@@ -3,7 +3,7 @@ import DefaultForm from './DefaultForm';
 import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
-import Navbar from './NavBar';
+import Test from './Test';
 import { Resizable } from 're-resizable';
 // import prettyFormat from "pretty-format";
 // const { ReactTestComponent } = prettyFormat.plugins;
