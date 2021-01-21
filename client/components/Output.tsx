@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import DefaultForm from './DefaultForm';
-import { CopyBlock, dracula, nord, monokai } from "react-code-blocks";
+import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
-import Navbar from './NavBar';
-// import jsxToString from 'jsx-to-string';
+import Test from './Test';
+import { Resizable } from 're-resizable';
+import ContextProvider from '../containers/ContextProvider';
 
-console.log(DefaultForm.toString());
+
 const sampleJSX = `import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -47,11 +48,25 @@ export default function DefaultForm() {
 
 const sampleWithImports = `import React from "react"; \nimport { useForm } from "react-hook-form"; \n\n${DefaultForm}`;
 export default function Output() {
+  const state = useContext(ContextProvider);
+  console.log(state); // an array of the components
+  let test = '';
+  //do logic to turn state into a string.
+  for (let i = 0; i < state.componentsToDisplay.length; i++) {
+    test += state.componentsToDisplay[i] + '\n\n';
+  };
+
   return (
+    <Resizable
+  defaultSize={{
+  width: 325,
+  height: 700
+  }}
+>
     <ScrollToBottom>
     <div className = 'output'>
       <CopyBlock 
-        text={sampleWithImports}
+        text={test}
         showLineNumbers={true}
         codeBlock
         language= "tsx"
@@ -60,6 +75,7 @@ export default function Output() {
       />
     </div>
     </ScrollToBottom>
+    </Resizable>
   );
 }
 
