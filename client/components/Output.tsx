@@ -1,19 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import DefaultForm from './DefaultForm';
 import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
 import Test from './Test';
 import { Resizable } from 're-resizable';
-// import prettyFormat from "pretty-format";
-// const { ReactTestComponent } = prettyFormat.plugins;
-
-
-// console.log(DefaultForm)
-// console.log(prettyFormat(TestRenderer(DefaultForm, {
-//   // plugins: [ReactTestComponent],
-//   printFunctionName: false,
-// })));
+import ContextProvider from '../containers/ContextProvider';
 
 
 const sampleJSX = `import React from "react";
@@ -54,6 +46,14 @@ export default function DefaultForm() {
 `
 
 export default function Output() {
+  const state = useContext(ContextProvider);
+  console.log(state); // an array of the components
+  let test = '';
+  //do logic to turn state into a string.
+  for (let i = 0; i < state.length; i++) {
+    test += state[i] + '\n\n';
+  };
+
   return (
     <Resizable
   defaultSize={{
@@ -64,7 +64,7 @@ export default function Output() {
     <ScrollToBottom>
     <div className = 'output'>
       <CopyBlock 
-        text={DefaultForm}
+        text={test}
         showLineNumbers={true}
         codeBlock
         language="typescript"
