@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
 import Cards from './Cards';
+import DefaultForm from './DefaultForm';
 
 
 
@@ -46,8 +47,8 @@ export default function CardCreator(props:any) {
         // </Card.Body>
         // </Card>
         <>
-        <div ref={drag} style={{ fontSize: '100px', opacity: isDragging ? 0.5 : 1}} >
-              ♘
+        <div ref={drag} style={{ fontSize: '14px', opacity: isDragging ? 0.5 : 1}} >
+            <DefaultForm /> 
         </div>
         </>
     )

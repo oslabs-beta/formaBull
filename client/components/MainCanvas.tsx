@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDrop, DropTargetMonitor } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
-// import DefaultForm from './DefaultForm';
+import DefaultForm from './DefaultForm';
 
 export default function MainCanvas () {
   //turn canvas into droppable target by using useDrop hook
@@ -52,7 +52,7 @@ export default function MainCanvas () {
     className={'main-canvas'}
     >
       {isActive ? 'Release to drop' : 'Drag a box here'}
-      
+      <DefaultForm />
     {/* {children} */}
     </div>
   )
