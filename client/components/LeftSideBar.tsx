@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '../components/Cards';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -74,12 +75,16 @@ export default function LeftSideBar() {
   return (
     <div className={classes.root}>
       <div className={classes.backgroundColor}>
+     
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
           <StyledTab label="Edit" />
           <StyledTab label="Add" />
           <StyledTab label="Style" />
         </StyledTabs>
         <Typography className={classes.padding} />
+      </div>
+      <div>
+      <Card />
       </div>
     </div>
   );
