@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
+import Cards from './Cards';
 
 
 
@@ -17,6 +18,13 @@ export default function CardCreator(props:any) {
       //this will pass the id of the card while it is being dragged
       // id: props._id,
     }, 
+
+    end: (item, monitor) => {
+        const dropResult = monitor.getDropResult();
+        if (item && dropResult) {
+            alert(`You dropped something into canvas!`);
+        }
+    },
     //collect function - this is basically a way to transform state from the drag-and-drop system into usable props for the items/components
     collect: monitor => ({
         //monitor will return isDragging prop if monitor.isDragging is true and it is only true when the specific item is being dragged
@@ -24,17 +32,23 @@ export default function CardCreator(props:any) {
     })
 });
 
+
     return (
-        <Card 
-        ref={drag} 
-        style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
-        <Card.Body>
-            <Card.Title>Test</Card.Title>
-            <Card.Text>
-            All I want is Drag and Drop functionality
-            </Card.Text>
-            <Button variant="primary">Do Something</Button>
-        </Card.Body>
-        </Card>
+        // <Card 
+        // ref={drag} 
+        // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
+        // <Card.Body>
+        //     <Card.Title>Test</Card.Title>
+        //     <Card.Text>
+        //     All I want is Drag and Drop functionality
+        //     </Card.Text>
+        //     <Button variant="primary">Do Something</Button>
+        // </Card.Body>
+        // </Card>
+        <>
+        <div ref={drag} style={{ fontSize: '100px', opacity: isDragging ? 0.5 : 1}} >
+              ♘
+        </div>
+        </>
     )
 }

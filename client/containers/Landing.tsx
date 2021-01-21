@@ -18,7 +18,7 @@ export default function Landing (props: any) {
         <Route exact path='/'>
           <div className ='side-bars-and-canvas'>
             <LeftSideBar />
-            <MainCanvas id="canvas" className="canvas"/>
+            <MainCanvas id="canvas" className="canvas" />
             <RightSideBar />
           </div>
           <div className='cards'>
