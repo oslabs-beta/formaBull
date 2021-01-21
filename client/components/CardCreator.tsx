@@ -1,12 +1,16 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+// import { Card, Button } from 'react-bootstrap';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
-import Cards from './Cards';
+import DefaultForm from './DefaultForm';
+import { TextField } from '@material-ui/core'
 
 
+export const inputProps = {
+    label : ''
+}
 
-export default function CardCreator(props:any) {
+export const CardCreator = (props:any) => {
      //useDrag returns an array of two things: an object that contains extra props(received from collecting functions), and a ref that binds and tells react-dnd that the result of this hook will be attached to the specific component
   const[{ isDragging }, drag] = useDrag({
     //takes two things: item and that item's type
@@ -16,7 +20,7 @@ export default function CardCreator(props:any) {
       type: ItemTypes.CARD,
       //when we have multiple draggable cards/components
       //this will pass the id of the card while it is being dragged
-      // id: props._id,
+      id: props.id,
     }, 
 
     end: (item, monitor) => {
@@ -32,10 +36,17 @@ export default function CardCreator(props:any) {
     })
 });
 
-
     return (
+        <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
+        <TextField 
+        id="standard-basic" 
+        label='Name'
+        // inputProps={inputProps}
+        >
+        </TextField>
+        </div>
         // <Card 
-        // ref={drag} 
+        //  
         // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
         // <Card.Body>
         //     <Card.Title>Test</Card.Title>
@@ -45,10 +56,11 @@ export default function CardCreator(props:any) {
         //     <Button variant="primary">Do Something</Button>
         // </Card.Body>
         // </Card>
-        <>
-        <div ref={drag} style={{ fontSize: '100px', opacity: isDragging ? 0.5 : 1}} >
-              ♘
-        </div>
-        </>
+        // <>
+        // <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} >
+        //       {/* ♘ */}
+        //       <DefaultForm />
+        // </div>
+        // </>
     )
 }
