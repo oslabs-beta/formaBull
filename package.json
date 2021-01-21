@@ -31,8 +31,11 @@
     "@material-ui/icons": "^4.11.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "buble": "^0.20.0",
     "fontsource-roboto": "^4.0.0",
     "jsx-to-string": "^1.4.0",
+    "pretty-format": "^26.6.2",
+    "re-resizable": "^6.9.0",
     "react": "^17.0.1",
     "react-code-blocks": "0.0.8",
     "react-dom": "^17.0.1",
@@ -40,6 +43,7 @@
     "react-hook-form": "^6.14.2",
     "react-router-dom": "^5.2.0",
     "react-scroll-to-bottom": "^4.1.0",
+    "react-stringify": "^1.0.0",
     "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {

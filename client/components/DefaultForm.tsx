@@ -1,16 +1,19 @@
+import { CollectionsOutlined } from "@material-ui/icons";
 import React from "react";
 import { useForm } from "react-hook-form";
+import Stringify from 'react-stringify';
+import TestRenderer from 'react-test-renderer';
 
 type Inputs = {
   example: string,
   exampleRequired: string,
 };
 
-export default function DefaultForm() {
+function DefaultForm() {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
   const onSubmit = data => console.log(data);
-
-  console.log(watch("example")) // watch input value by passing the name of it
+ 
+  // console.log(watch("example")) // watch input value by passing the name of it
 
   return (
     <div className = 'default-form'>
@@ -33,3 +36,37 @@ export default function DefaultForm() {
     </div>
   );
 }
+const testFormJSON = DefaultForm;
+console.log(JSON.stringify(TestRenderer.create(<DefaultForm />)));
+const testFormString = <Stringify value={testFormJSON} />;
+console.log(testFormString);
+// console.log(testFormString);
+export default DefaultForm;
+// export default function DefaultForm() {
+//   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
+//   const onSubmit = data => console.log(data);
+ 
+//   console.log(watch("example")) // watch input value by passing the name of it
+
+//   return (
+//     <div className = 'default-form'>
+//     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+//     <form onSubmit={handleSubmit(onSubmit)}>
+//     {/* register your input into the hook by invoking the "register" function */}
+//     <label>Name</label>
+//       <input name="example" defaultValue="test" ref={register} />
+      
+//       {/* include validation with required or other standard HTML validation rules */}
+//       <label>Last Name</label>
+//       <input name="exampleRequired" ref={register({ required: true })} />
+//       {/* errors will return when field validation fails  */}
+//       <label>Age</label>
+//       <input name="exampleRequired" ref={register({ required: true })} />
+//       {errors.exampleRequired && <span>This field is required</span>}
+      
+//       <input type="submit" />
+//     </form>
+//     </div>
+//   );
+// }
+

@@ -1,12 +1,21 @@
 import React from 'react';
 import DefaultForm from './DefaultForm';
-import { CopyBlock, dracula, nord, monokai } from "react-code-blocks";
+import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
-// import jsxToString from 'jsx-to-string';
+import { Resizable } from 're-resizable';
+// import prettyFormat from "pretty-format";
+// const { ReactTestComponent } = prettyFormat.plugins;
 
-// console.log(jsxToString(DefaultForm));
+
+// console.log(DefaultForm)
+// console.log(prettyFormat(TestRenderer(DefaultForm, {
+//   // plugins: [ReactTestComponent],
+//   printFunctionName: false,
+// })));
+
+
 const sampleJSX = `import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -46,10 +55,16 @@ export default function DefaultForm() {
 
 export default function Output() {
   return (
+    <Resizable
+  defaultSize={{
+  width: 325,
+  height: 700
+  }}
+>
     <ScrollToBottom>
     <div className = 'output'>
       <CopyBlock 
-        text={sampleJSX}
+        text={DefaultForm}
         showLineNumbers={true}
         codeBlock
         language="typescript"
@@ -57,5 +72,6 @@ export default function Output() {
       />
     </div>
     </ScrollToBottom>
+    </Resizable>
   );
 }
