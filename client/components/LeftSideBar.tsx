@@ -1,11 +1,12 @@
 import React from 'react'
-import Card from '../components/Cards';
+import { CardCreator } from './CardCreator';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import ContextProvider from '../containers/ContextProvider';
+import { DraggableElements } from '../components/DraggableElements'
 
+// console.log(DraggableElements)
 
 interface StyledTabsProps {
   value: number;
@@ -96,7 +97,7 @@ export default function LeftSideBar() {
         <Typography className={classes.padding} />
       </div>
       <div>
-        {output}
+      <DraggableElements/>
       </div>
     </div>
   );

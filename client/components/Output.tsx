@@ -3,10 +3,9 @@ import DefaultForm from './DefaultForm';
 import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
-import Test from './Test';
+import Navbar from './NavBar';
 import { Resizable } from 're-resizable';
-import ContextProvider from '../containers/ContextProvider';
-const fs = require('fs');
+// import jsxToString from 'jsx-to-string';
 
 console.log(fs.readFileSync('../'))
 const sampleJSX = `import React from "react";
