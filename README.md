@@ -8,7 +8,7 @@ Forms with React and Hooks simplified: Drag & Drop -> Click, Done.
 formaBull is an Electron application for React Developers who want to quickly generate forms.  You can create the shape of your forms by dragging elements in, and style them in-app by adjusting sliders in the Style tab.  Forms will be saved to your account, and you can switch among them as needed.
 
 ## Technologies Used
-React, Typescript, Electron, VS Code
+React, Typescript, Electron, VS Code, Material-UI
 
 ## What Needs Work?
 Currently, we are serving a default form.  Customization to come.<br>

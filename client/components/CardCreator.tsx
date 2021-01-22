@@ -1,10 +1,10 @@
-import React from 'react';
-// import { Card, Button } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Card, Button } from 'react-bootstrap';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
 import DefaultForm from './DefaultForm';
-import { TextField } from '@material-ui/core'
-
+import ContextProvider from '../containers/ContextProvider';
+import { TextField } from '@material-ui/core';
 
 export const inputProps = {
     label : ''
@@ -35,7 +35,6 @@ export const CardCreator = (props:any) => {
         isDragging: !!monitor.isDragging(),
     })
 });
-
     return (
         <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
         <TextField 
@@ -54,7 +53,7 @@ export const CardCreator = (props:any) => {
         //     All I want is Drag and Drop functionality
         //     </Card.Text>
         //     <Button variant="primary">Do Something</Button>
-        // </Card.Body>
+        // </Card.Body> 
         // </Card>
         // <>
         // <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} >
