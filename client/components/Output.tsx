@@ -6,8 +6,9 @@ import TestRenderer from 'react-test-renderer';
 import Test from './Test';
 import { Resizable } from 're-resizable';
 import ContextProvider from '../containers/ContextProvider';
+const fs = require('fs');
 
-
+console.log(fs.readFileSync('../'))
 const sampleJSX = `import React from "react";
 import { useForm } from "react-hook-form";
 
