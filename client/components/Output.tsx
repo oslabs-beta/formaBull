@@ -4,6 +4,7 @@ import { CopyBlock, dracula, nord, monokai } from "react-code-blocks";
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
+import { Resizable } from 're-resizable';
 // import jsxToString from 'jsx-to-string';
 
 // console.log(jsxToString(DefaultForm));
@@ -46,6 +47,12 @@ export default function DefaultForm() {
 
 export default function Output() {
   return (
+    <Resizable
+  defaultSize={{
+  width: 325,
+  height: 700
+  }}
+>
     <ScrollToBottom>
     <div className = 'output'>
       <CopyBlock 
@@ -57,5 +64,6 @@ export default function Output() {
       />
     </div>
     </ScrollToBottom>
+    </Resizable>
   );
 }

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDrop, DropTargetMonitor } from 'react-dnd';
 import { ItemTypes } from '../utils/items';
-// import DefaultForm from './DefaultForm';
+import { CardContext } from './DraggableElements';
+import DefaultForm from './DefaultForm';
 
-export default function MainCanvas () {
+export const MainCanvas = (props:any) => {
   //turn canvas into droppable target by using useDrop hook
   //returns addedProps drop will be used as a ref
+  const { elementDropped, elementCycle } = useContext(CardContext);
   
-    const[{ isOver, canDrop }, drop] = useDrop({
+  const[{ isOver, canDrop }, drop] = useDrop({
       //need to specify what type of item to accept
       accept: ItemTypes.CARD,
       //drop will only be called during drop event, always takes item and monitor, monitor will pass info about the specific item being dropped. for example item id
@@ -24,11 +26,15 @@ export default function MainCanvas () {
           //   return true;
           // }, 
           
-          drop: (item, monitor: DropTargetMonitor) => (console.log(item)),      // name: 'Canvas'
+    drop: (item, monitor) => {
+      elementDropped(item.id),
+      elementCycle(item.id)
+    
+    },   // name: 'Canvas'
           // console.log(item)
   
           
-    collect: (monitor: any) => ({
+    collect: (monitor) => ({
       isOver: !!monitor.isOver(),
       canDrop: !!monitor.canDrop(),
     })
@@ -36,7 +42,7 @@ export default function MainCanvas () {
   
   const isActive = canDrop && isOver;
   let backgroundColor = '#222';
-  if (isActive) {
+  if (isOver) {
     backgroundColor = 'darkgreen';
   }
   else if (canDrop) {
@@ -52,8 +58,8 @@ export default function MainCanvas () {
     className={'main-canvas'}
     >
       {isActive ? 'Release to drop' : 'Drag a box here'}
-      
-    {/* {children} */}
+    {props.children}
+    <DefaultForm />
     </div>
   )
  }
