@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import LeftSideBar from '../components/LeftSideBar';
-import MainCanvas from '../components/MainCanvas';
+import { MainCanvas } from '../components/MainCanvas';
 import RightSideBar from '../components/RightSideBar';
 import SavedForms from './SavedForms';
 import Drafts from './Drafts'
@@ -9,6 +9,7 @@ import Contact from './Contact'
 import Help from './Help'
 import TakeTour from './TakeTour'
 import { BrowserRouter, Router, Switch, Route } from 'react-router-dom';
+import { DraggableElements } from '../components/DraggableElements'
 
 export default function Landing (props: any) {
 
@@ -22,13 +23,14 @@ export default function Landing (props: any) {
         <Route exact path='/'>
           <div className ='side-bars-and-canvas'>
             <LeftSideBar />
-            <MainCanvas id="canvas" className="canvas" >
-              
-              <MainCanvas/>
+            {/* <MainCanvas id="canvas" className="canvas" /> */}
+           
+         
+       
             <RightSideBar />
           </div>
           <div className='cards'>
-   
+
       </div>
         </Route>
         <Route path='/savedforms'>
