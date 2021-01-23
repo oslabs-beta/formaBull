@@ -6,12 +6,37 @@ interface AppContextInterface {
 
 //define components that we want to drag from LeftSideBar
 const compOptions = [
-  function NameComponent () {
-    let firstName = '';
+  // function NameComponent () {
+  //   let firstName = '';
+  // },
+  // function AgeComponent () {
+  //   let age = 20;
+	// }, 
+	// {
+	// 	id: 'input',
+	// 	data: `<input name="example" defaultValue="test" ref={register} />`,
+	// },
+	{
+		id: 'firstName',
+data: `<label>First Name</label>
+\t<input name="firstName" defaultValue="Jonny" ref={register} />`
+	},
+	{
+		id: 'lastName',
+data: `<label>Last Name</label>
+\t<input name="lastName" defaultValue="Bravo" ref={register} />`
+	},
+  {
+    id: 'age',
+data: `<label>Age</label>
+\t<input name="age" type="number" defaultValue="22" ref={register} />`
   },
-  function AgeComponent () {
-    let age = 20;
-  }
+  {
+    id: `password`,
+data: `<label>Password</label>
+\t<input name="password" type="password" ref="{register} />`
+  },
+
 
 ]
 
