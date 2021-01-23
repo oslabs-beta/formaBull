@@ -5,9 +5,12 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
 import { Resizable } from 're-resizable';
+import Test from '../containers/ContextProvider';
 // import jsxToString from 'jsx-to-string';
+import ContextProvider from '../containers/ContextProvider';
 
-console.log(fs.readFileSync('../'))
+
+console.log(Test)
 const sampleJSX = `import React from "react";
 import { useForm } from "react-hook-form";
 

@@ -90,7 +90,7 @@ export default function LeftSideBar() {
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
           <StyledTab label="Edit" />
           <StyledTab label="Add">
-            <Card />
+            <CardCreator />
           </StyledTab>
           <StyledTab label="Style" />
         </StyledTabs>
