@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CardCreator } from './CardCreator';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { DraggableElements } from '../components/DraggableElements'
+import ContextProvider from '../containers/ContextProvider';
 
 // console.log(DraggableElements)
 
@@ -69,7 +70,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 export default function LeftSideBar() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
+  /// max&windu
+  // const state = useContext(ContextProvider);
+  // console.log('state', state.componentOptions[0].name);
+  ////
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
@@ -86,7 +90,7 @@ export default function LeftSideBar() {
         <Typography className={classes.padding} />
       </div>
       <div>
-      <DraggableElements/>
+      <DraggableElements />
       </div>
     </div>
   );

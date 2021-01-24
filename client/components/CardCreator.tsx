@@ -26,7 +26,7 @@ export const CardCreator = (props:any) => {
     end: (item, monitor) => {
         const dropResult = monitor.getDropResult();
         if (item && dropResult) {
-            alert(`You dropped something into canvas!`);
+            console.log(`You dropped something into canvas!`);
         }
     },
     //collect function - this is basically a way to transform state from the drag-and-drop system into usable props for the items/components
@@ -37,29 +37,28 @@ export const CardCreator = (props:any) => {
 });
     return (
         <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-        <TextField 
+        {/* <TextField 
         id="standard-basic" 
         label='Name'
         // inputProps={inputProps}
         >
         </TextField>
+        </div>*/}
+        <Card  
+        style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
+        <Card.Body>
+            <Card.Title>First Name</Card.Title>
+            {/* <Card.Text>
+            All I want is Drag and Drop functionality
+            </Card.Text> */}
+            {/* <Button variant="primary">Do Something</Button> */}
+        </Card.Body> 
+        </Card>
+        {/* <> */}
+        {/* <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} > */}
+            {/* ♘ */}
+            {/* <DefaultForm /> */}
         </div>
-        // <Card 
-        //  
-        // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
-        // <Card.Body>
-        //     <Card.Title>Test</Card.Title>
-        //     <Card.Text>
-        //     All I want is Drag and Drop functionality
-        //     </Card.Text>
-        //     <Button variant="primary">Do Something</Button>
-        // </Card.Body> 
-        // </Card>
-        // <>
-        // <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} >
-        //       {/* ♘ */}
-        //       <DefaultForm />
-        // </div>
         // </>
     )
 }

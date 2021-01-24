@@ -1,8 +1,9 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext} from 'react';
 import { Box } from '@material-ui/core';
 import { CardCreator, inputProps } from './CardCreator';
 import { MainCanvas } from './MainCanvas';
-
+import ContextProvider from '../containers/ContextProvider';
+// conditional
 export const CardContext = createContext({
     elementDropped: null,
     elementCycle: null
@@ -10,12 +11,15 @@ export const CardContext = createContext({
 
 
 export const DraggableElements = () => {
+  const state = useContext(ContextProvider);
+  console.log('state', state.componentOptions[0]);
+
   const [listOfDraggableElements, setListOfDraggableElements] = useState([
     {
       id: 1,
       status: 'not-dropped',
       category: 'input-field',
-      title: ' First Name',
+      title: 'First Name',
     },
     {
       id: 2,
@@ -28,9 +32,20 @@ export const DraggableElements = () => {
       category: 'input-field',
       title: 'Email',
     }
+    // {
+    //   id: 1,
+    //   status: 'not-dropped',
+    //   category: 'input-field',
+    //   title: 'Name Component',
+    //   // data: state.componentOptions[0]
+    // }
   ]);
 
+  // for (const each of state.componentOptions) {
+  //   setListOfDraggableElements(each);
+  // }
 
+  // console.log()
   const [listOfDroppedElements, setListOfDroppedElements] = useState([
     { id: 0,
       status: '',
@@ -60,10 +75,10 @@ export const DraggableElements = () => {
 
 
   return (
-       <CardContext.Provider value={{elementDropped, elementCycle}}>
-    <div>
-     <Box bgcolor='yellow' height='auto' width='100px'>
-       {listOfDraggableElements
+    <CardContext.Provider value={{elementDropped, elementCycle}}>
+      <div>
+      <Box bgcolor='azure' height='auto' width='100px'>
+        {listOfDraggableElements
         .filter((draggableElement, i) => draggableElement.status === 'not-dropped')
         .map((draggableElement, i) => (
           <CardCreator
@@ -73,9 +88,9 @@ export const DraggableElements = () => {
           title={draggableElement.title}
           />
         ))
-       }
-     </Box>
-     <MainCanvas>
+        }
+      </Box>
+      <MainCanvas>
         {listOfDroppedElements
         .filter((draggableElement, i) => draggableElement.status === 'dropped')
         .map((draggableElement, i) => (
@@ -87,8 +102,8 @@ export const DraggableElements = () => {
           />
         ))
         }
-       </MainCanvas>
-       </div>
-       </CardContext.Provider>
+      </MainCanvas>
+      </div>
+    </CardContext.Provider>
   )
 }
