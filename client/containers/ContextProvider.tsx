@@ -36,7 +36,18 @@ data: `<label>Age</label>
 data: `<label>Password</label>
 \t<input name="password" type="password" ref="{register} />`
   },
-
+	{
+    id: 'genderBinary',
+data: `<label>Gender</label>
+\t<input name="gender" type="radio" id="male" value="male" /><label for="male">Male</label>
+\t<input name="gender" type="radio" id="female" value="female" /><label for="female">Female</label>`
+  },
+  {
+    id: 'checkBox',
+data: `<label>Check Box</label>
+\t<input name="checkBox" type="checkbox" id="item1" name="item1" /><label for="item1">Item1</label><br />
+\t<input name="checkBox" type="checkbox" id="item2" name="item2" /><label for="item2">Item2</label>`
+  }
 
 ]
 
