@@ -1,11 +1,12 @@
 import React from 'react'
-import Card from '../components/Cards';
+import { CardCreator } from './CardCreator';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-// import AppContext from '../containers/ContextProvider';
+import { DraggableElements } from '../components/DraggableElements'
 
+// console.log(DraggableElements)
 
 interface StyledTabsProps {
   value: number;
@@ -67,11 +68,20 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function LeftSideBar() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
+  
 
+  const output = <div> Hello </div>
+  
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
+
+  if (value === 1) {
+    // reassign div to all the options
+    // console.log("test", value)
+
+  }
 
   return (
     <div className={classes.root}>
@@ -79,13 +89,15 @@ export default function LeftSideBar() {
      
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
           <StyledTab label="Edit" />
-          <StyledTab label="Add" />
+          <StyledTab label="Add">
+            <CardCreator />
+          </StyledTab>
           <StyledTab label="Style" />
         </StyledTabs>
         <Typography className={classes.padding} />
       </div>
       <div>
-      <Card />
+      <DraggableElements/>
       </div>
     </div>
   );
