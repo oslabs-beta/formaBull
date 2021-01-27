@@ -59,12 +59,11 @@ export const MainCanvas = (props:any) => {
     >
       {isActive ? 'Release to drop' : 'Drag a box here'}
     {props.children}
-    <DefaultForm />
+    {/* <DefaultForm /> */}
     </div>
   )
- }
+}
 
-    
 
 
 

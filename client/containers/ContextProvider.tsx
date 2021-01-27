@@ -3,6 +3,72 @@ import React from 'react';
 interface AppContextInterface {
   componentsToDisplay: Symbol,
 }
+    // class/function to create linked list on main
+const ComponentLinkedList = () => {
+  this.head = null;
+  this.tail = null;
+};
+    // class/function to create a node on linked list
+const Node = (val) => {
+  this.val = val;
+  this.next = null;
+  this.prev = null;
+}
+    // function to add to the end of linked list
+ComponentLinkedList.prototype.add = function (val) {
+  const newNode = new Node(val);
+  if (!this.tail) {
+    this.head = newNode;
+    this.tail = newNode;
+    return;
+  }
+  const oldTail = this.tail;
+  newNode.prev = oldTail;
+  this.tail.next = newNode;
+  this.tail = newNode;
+};
+    // function to remove a node passed in
+ComponentLinkedList.prototype.remove = function (val) {
+   //traverse the list, starting with head bc why not
+  //keep track of the prev,the current and the next
+  //if we find a matching value,
+    //reassign the prev.next to be next,
+    //and reassign next.prev to be prev
+  //exit
+  let curr = this.head;
+  let prev = curr.prev;
+  let next = curr.next;
+  while (curr.val !== val) {
+    next = next.next;
+    curr = curr.next;
+    prev = prev.next;
+  }
+  //curr equals val or curr is now null
+  //if curr is null, we never found our value,so just return
+  if (!curr) return;
+  //curr now equals val
+  //if prev and next are null, we remove and return an empty list, so make head and tail null
+  if (!prev && !next) {
+    this.head = null;
+    this.tail = null;
+    return;
+  }
+  //if just prev is null, we're removing the head
+  if (!prev) {
+    next.prev = null;
+    this.head = curr.next;
+    return;
+  }
+  //no next means replace tail
+  if (!next) {
+    prev.next = null
+    this.tail = prev;
+    return;
+  }
+  //we now are at the case where curr is the node to remove
+  prev.next = next;
+  next.prev = prev;
+}
 
 //define components that we want to drag from LeftSideBar
 const compOptions = [ //DnDComponents
