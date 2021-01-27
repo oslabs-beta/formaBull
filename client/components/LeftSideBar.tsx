@@ -1,12 +1,9 @@
-import React from 'react'
-import { CardCreator } from './CardCreator';
+import React, { useContext } from 'react';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import { DraggableElements } from '../components/DraggableElements'
+import { Tabs, Tab, Box, Typography } from '@material-ui/core';
+import { AppContext } from '../../src/'
+import { CardCreator } from './CardCreator';
 
-// console.log(DraggableElements)
 
 interface StyledTabsProps {
   value: number;
@@ -55,7 +52,7 @@ const StyledTab = withStyles((theme: Theme) =>
 // makeStyle/useStyle is used at function components as a hook. This is similar to intial state. Any custom material-ui styling can go here and then can be set/invoked inside a div's className
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 0.03,
   },
   padding: {
     padding: theme.spacing(1),
@@ -66,10 +63,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 
-export default function LeftSideBar() {
+export const LeftSideBar = (props:any) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(1);
-  
+  const [value, setValue] = React.useState(0);
+  const { listOfDraggableElements }: any = useContext(AppContext);
 
   const output = <div> Hello </div>
   
@@ -77,16 +74,11 @@ export default function LeftSideBar() {
     setValue(newValue);
   };
 
-  if (value === 1) {
-    // reassign div to all the options
-    // console.log("test", value)
-
-  }
+  console.log(listOfDraggableElements[0].id)
 
   return (
     <div className={classes.root}>
       <div className={classes.backgroundColor}>
-     
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
           <StyledTab label="Edit" />
           <StyledTab label="Add">
@@ -97,63 +89,22 @@ export default function LeftSideBar() {
         <Typography className={classes.padding} />
       </div>
       <div>
-      <DraggableElements/>
-      </div>
+        <Box bgcolor='yellow' height='auto' width='100px'>
+          {listOfDraggableElements
+            .filter((draggableElement: any, i: any) => draggableElement.status === 'not-dropped')
+            .map((draggableElement: any, i: any) => (
+              <CardCreator
+              //took out draggableElement.id.toString()
+                key={(Math.random() * 1000) << 0}
+                id={draggableElement.id}
+                category={draggableElement.category}
+                title={draggableElement.title}
+              />
+            ))
+          }
+        </Box>
+    </div>
     </div>
   );
 }
 
-
-
-// // Override style by adding to the withStyles() higher-order component to inject custom styles into the DOM, and to pass the class name to the ClassNames component via its classes property.
-// const useStyles = makeStyles((theme: Theme) => ({
-//   root: {
-//     flexGrow: 1, //From material-ui.com
-//     // backgroundColor: '#000000',
-//     color: '#00000',
-//     // marginRight: theme.spacing(1),
-//   },
-// }));
-
-
-// // const Tab = withStyles((theme: Theme) =>
-// //   createStyles({
-// //     root: {
-// //       textTransform: 'none',
-// //       minWidth: 72,
-// //       fontWeight: theme.typography.fontWeightRegular,
-// //       marginRight: theme.spacing(4)
-// //     }
-// //   })
-// // )
-
-// export default function LeftSideBar () {
-
-//   const classes = useStyles();
-//   const [value, setValue] = React.useState(0);
-
-//   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-//     setValue(newValue);
-//   };
-
-//   return (
-//       <div className = 'left-side-bar'>
-//     <Paper className={classes.root}>
-//       <Tabs
-//         value={value}
-//         onChange={handleChange}
-//         indicatorColor="primary"
-//         textColor="primary"
-//         centered
-//       >
-//         <Tab label="Edit" />
-
-//         <Tab label="Add" />
-        
-//         <Tab label="Style" />
-//       </Tabs>
-//     </Paper>
-
-//       </div>
-//   );
-// }
