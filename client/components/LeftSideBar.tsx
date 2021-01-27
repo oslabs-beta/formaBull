@@ -72,6 +72,8 @@ export const LeftSideBar = (props:any) => {
     setValue(newValue);
   };
 
+  console.log(listOfDraggableElements[0].id)
+
   return (
     <div className={classes.root}>
       <div className={classes.backgroundColor}>
@@ -88,7 +90,8 @@ export const LeftSideBar = (props:any) => {
             .filter((draggableElement: any, i: any) => draggableElement.status === 'not-dropped')
             .map((draggableElement: any, i: any) => (
               <CardCreator
-                key={draggableElement.id.toString()}
+              //took out draggableElement.id.toString()
+                key={(Math.random() * 1000) << 0}
                 id={draggableElement.id}
                 category={draggableElement.category}
                 title={draggableElement.title}

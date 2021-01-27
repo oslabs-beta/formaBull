@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
     flexGrow: 1,
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    boxShadow: '0 3px 5px 7px rgba(255, 105, 135, .3)',
     background: 'transparent',
     // boxShadow: 'none',
     border: 0,
@@ -52,6 +52,7 @@ export const MainCanvas = (props:any) => {
       })
     })
     
+    // console.log(listOfDroppedElements[0].id)
 
   const isActive = canDrop && isOver;
 
@@ -71,7 +72,8 @@ export const MainCanvas = (props:any) => {
         .filter((draggableElement: any, i: any) => draggableElement.status === 'dropped')
         .map((draggableElement: any, i: any) => (
           <CardCreator
-            key={draggableElement.id.toString()}
+          //took out draggableElement.id.toString()
+            key={(Math.random() * 1000) << 0}
             id={draggableElement.id}
             category={draggableElement.category}
             title={draggableElement.title}

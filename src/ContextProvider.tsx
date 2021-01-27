@@ -6,18 +6,31 @@ import { AppContext } from './index'
 export const ContextProvider = ({ children }: any) => {
 
   const elementDropped = (id: any) => {
+
     const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id === id);
+
     draggableElement[0].status = 'dropped'
+    // draggableElement[0].id =  (Math.random() * 1000) << 0
+    console.log(draggableElement[0].id)
+
     setListOfDroppedElements(listOfDroppedElements.filter((draggableElement, i) => draggableElement.id !== id).concat(draggableElement[0]));
     // console.log(listOfDroppedElements);
   }
 
+
   const elementCycle = (id: any) => {
     console.log("element cycle is working!!!")
-    const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id === id);
+    //changed === to !==
+    const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id);
+
     setListOfDraggableElements(listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id).concat(draggableElement[0]))
+
+    // setListOfDraggableElements(oldArr => 
+    //     [...oldArr, draggableElement[0]]
+    // )
     // console.log(listOfDraggableElements);
   }
+
 
     const [listOfDraggableElements, setListOfDraggableElements] = useState([
         {
@@ -40,6 +53,7 @@ export const ContextProvider = ({ children }: any) => {
         }
     ]);
 
+
     const [listOfDroppedElements, setListOfDroppedElements] = useState([
         {
             id: 0,
@@ -48,6 +62,7 @@ export const ContextProvider = ({ children }: any) => {
             title: '',
         }
     ]);
+
 
     //Global Store
     const context: any = {
