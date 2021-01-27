@@ -1,27 +1,47 @@
-import React, {useContext} from 'react';
-import { render } from 'react-dom';
-import '../../style.scss'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './Landing'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
-import AppContext from './ContextProvider';
-import DefaultForm from '../components/DefaultForm';
+import NavBar from '../components/NavBar'
+import SavedForms from './SavedForms';
+import Drafts from './Drafts'
+import Contact from './Contact'
+import Help from './Help'
+import TakeTour from './TakeTour'
+import '../../style.scss'
 
-export default function App () {
-  const state = useContext(AppContext)
+
+export default function App(props: any) {
   return (
     <div>
-      <AppContext.Provider value={state}>
-      <DndProvider backend={HTML5Backend}>
-    {/* Use < /> for components invocation and {} for function invocation */}
+    <div>
+      <NavBar />
+    </div>
+    <BrowserRouter>
+    <div>
+      <div className = 'landing'>
+      <Switch>
+        <Route exact path='/'>
       <Landing />
-      </DndProvider>
-      </AppContext.Provider>
+        </Route>
+        <Route exact path='/savedforms'>
+          <SavedForms />
+        </Route>
+        <Route path='/drafts'>
+          <Drafts />
+        </Route>
+        <Route path='/contact'>
+          <Contact />
+        </Route>
+        <Route path='/help'>
+          <Help />
+        </Route>
+        <Route path='/take-a-tour'>
+          <TakeTour />
+        </Route>
+      </Switch>
+      </div>
+    </div>
+    </BrowserRouter>
     </div>
   )
 };
-
-render(<App />, document.getElementById('root'));
-
-
-

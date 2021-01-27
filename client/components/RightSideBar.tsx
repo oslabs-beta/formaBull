@@ -1,8 +1,6 @@
 import React from 'react'
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import { Tabs, Tab, Typography } from '@material-ui/core/';
 import Output from './Output';
 
 
@@ -64,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 
 
-export default function RightSideBar() {
+export const RightSideBar = (props:any) => {
   // This is used to set the hook/set state
   const classes = useStyles();
   const [value, setValue] = React.useState(0);

@@ -2,37 +2,36 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  resolve: { 
-    extensions: [".tsx", ".ts", ".js", '.jsx' ],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", '.jsx'],
     mainFields: ["main", "module", "browser"],
 
   },
-  entry: "./client/containers/App.tsx",
+  entry: "./src/index.tsx",
   target: "electron-renderer", //if this is removed you can view your app on the localhost
   devtool: "source-map",
 
   module: {
-    rules: [
-    {
-      test: /\.(js|jsx|ts|tsx)$/,
-      // Exclude node modules because majority are ES5 compatible and it will save time to not go through all the modules to check for compatibility.
-      exclude: /node_modules/,
-      loader: "babel-loader",
-      options: {
-        presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript" ],
+    rules: [{
+        test: /\.(js|jsx|ts|tsx)$/,
+        // Exclude node modules because majority are ES5 compatible and it will save time to not go through all the modules to check for compatibility.
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+        },
       },
-    },
-    {
-      test: /\.s(a|c)ss$/,
-      use: ["style-loader", "css-loader", "sass-loader"]    
-    },
+      {
+        test: /\.s(a|c)ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
     ]
   },
   devServer: {
     contentBase: path.join(__dirname, "../dist/renderer"),
     historyApiFallback: true, // for routes when you have react app, there is a problem with reloading and will lead to the root and lose the history of your navigation. 
     hot: true,
-    port: 4000, 
+    port: 4000,
     publicPath: "/", // add 
   },
   output: {

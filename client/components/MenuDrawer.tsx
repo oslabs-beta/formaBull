@@ -1,23 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core/';
+import CodeIcon from '@material-ui/icons/Code'
+import BookmarkIcon from '@material-ui/icons/Bookmark'
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/icons/Menu';
-import { Icon } from '@material-ui/core';
-import { NavLink, withRouter } from 'react-router-dom';
-// import Routes from '../../routes/Routes';
 import{ navLinks } from '../../routes/Routes'
 
-console.log(navLinks)
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -36,7 +26,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 type Anchor = 'left';
 
-export default function MenuDrawer() {
+
+export const MenuDrawer = (props:any) => {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false,
@@ -64,30 +55,19 @@ export default function MenuDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component="nav" aria-labelledby="main navigation">
-    {navLinks.map(({ title, path }, index) => (
-      <a href={path} key={title} style={{ color: 'inherit',textDecoration: 'none' }}>
-        <ListItem button key={title}>
-        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={title} />
-        </ListItem>
-      </a>
-    ))}
-  </List>
-  {/*  */}
-  {/* <List component="nav" aria-labelledby="main navigation">
-    {navLinks.map(({ title, path }, index) => (
-      <a href={path} key={title}>
-        <ListItem button key={title}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+      {navLinks.map(({ title, path }, index) => (
+        <a href={path} key={title} style={{ color: 'inherit',textDecoration: 'none' }}>
+          <ListItem button key={title}>
+          <ListItemIcon>{index % 2 === 0 ? <CodeIcon /> : <BookmarkIcon />}</ListItemIcon>
             <ListItemText primary={title} />
           </ListItem>
-          </a>
-        ))}
-      </List> */}
+        </a>
+      ))}
+      </List>
     </div>
   );
 
-
+  
   return (
     <div>
       {(['left'] as Anchor[]).map((anchor) => (
