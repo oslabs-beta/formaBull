@@ -1,9 +1,7 @@
 import React from 'react';
-// import { Card, Button } from 'react-bootstrap';
 import { useDrag } from 'react-dnd';
-import { ItemTypes } from '../utils/items';
-import DefaultForm from './DefaultForm';
 import { TextField } from '@material-ui/core'
+import { ItemTypes } from '../utils/items';
 
 
 export const inputProps = {
@@ -26,7 +24,7 @@ export const CardCreator = (props:any) => {
     end: (item, monitor) => {
         const dropResult = monitor.getDropResult();
         if (item && dropResult) {
-            alert(`You dropped something into canvas!`);
+            // alert(`You dropped something into canvas!`);
         }
     },
     //collect function - this is basically a way to transform state from the drag-and-drop system into usable props for the items/components
@@ -41,26 +39,8 @@ export const CardCreator = (props:any) => {
         <TextField 
         id="standard-basic" 
         label='Name'
-        // inputProps={inputProps}
         >
         </TextField>
         </div>
-        // <Card 
-        //  
-        // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
-        // <Card.Body>
-        //     <Card.Title>Test</Card.Title>
-        //     <Card.Text>
-        //     All I want is Drag and Drop functionality
-        //     </Card.Text>
-        //     <Button variant="primary">Do Something</Button>
-        // </Card.Body>
-        // </Card>
-        // <>
-        // <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} >
-        //       {/* ♘ */}
-        //       <DefaultForm />
-        // </div>
-        // </>
     )
 }
