@@ -11,42 +11,42 @@ import ContextProvider from '../containers/ContextProvider';
 
 
 export default function Output() {
-  const state = useContext(ContextProvider);
-  console.log(state); // an array of the components
+  // const state = useContext(ContextProvider);
+  // console.log(state); // an array of the components
 
-  const injectFunc = (state) => {
-    const result = [];
-    for(let obj of state.componentOptions) {
-      // console.log(obj)
-      result.push(obj.data);
-    }
-    return result
-  }
+  // const injectFunc = (state) => {
+  //   const result = [];
+  //   for(let obj of state.componentOptions) {
+  //     // console.log(obj)
+  //     result.push(obj.data);
+  //   }
+  //   return result
+  // }
 
-  const componentResults = injectFunc(state);
-  let cleanedUpResults = ``;
-  for (const each of componentResults) {
-    cleanedUpResults += each + `\n\t`;
-  } 
+  // const componentResults = injectFunc(state);
+  // let cleanedUpResults = ``;
+  // for (const each of componentResults) {
+  //   cleanedUpResults += each + `\n\t`;
+  // } 
 
-  const parse =  `
-  import React from "react";
-  import { useForm } from "react-hook-form";
+  // const parse =  `
+  // import React from "react";
+  // import { useForm } from "react-hook-form";
   
-  type Inputs = {
-    example: string,
-    exampleRequired: string,
-  };
+  // type Inputs = {
+  //   example: string,
+  //   exampleRequired: string,
+  // };
   
-  export default function DefaultForm() {
-    const { register, handleSubmit, watch, errors } = useForm<Inputs>();
-    return (
-      <div className = 'default-form'>${cleanedUpResults}
-      </div>
-    );
-  };
+  // export default function DefaultForm() {
+  //   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
+  //   return (
+  //     <div className = 'default-form'>${cleanedUpResults}
+  //     </div>
+  //   );
+  // };
       
-      `
+      // `
 
   return (
     <Resizable
@@ -58,7 +58,7 @@ export default function Output() {
     <ScrollToBottom>
     <div className = 'output'>
       <CopyBlock 
-        text={parse}
+        text={''}
         showLineNumbers={true}
         codeBlock
         language= "tsx"
