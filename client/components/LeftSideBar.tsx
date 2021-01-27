@@ -72,7 +72,7 @@ export const LeftSideBar = (props:any) => {
     setValue(newValue);
   };
 
-  console.log(listOfDraggableElements[0].id)
+  // console.log(listOfDraggableElements[0].id)
 
   return (
     <div className={classes.root}>
