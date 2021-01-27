@@ -34,6 +34,7 @@
     "bootstrap": "^4.6.0",
     "fontsource-roboto": "^4.0.0",
     "jsx-to-string": "^1.4.0",
+    "pretty-format": "^26.6.2",
     "re-resizable": "^6.9.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
