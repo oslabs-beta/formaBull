@@ -5,10 +5,9 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
 import { Resizable } from 're-resizable';
-import Test from '../containers/ContextProvider';
 // import jsxToString from 'jsx-to-string';
+// import ContextProvider from '../../src/ContextProvider';
 import ContextProvider from '../containers/ContextProvider';
-
 
 export default function Output() {
   const state = useContext(ContextProvider);
