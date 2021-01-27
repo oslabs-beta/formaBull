@@ -28,6 +28,22 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }));
 
+//   # Types of changes
+// - [ ]  Bugfix (change which fixes an issue)
+// - [x]  New feature (change which adds functionality)
+// - [x]  Refactor (change which changes the codebase without affecting its external behavior)
+// - [ ]  Non-breaking change (fix or feature that would causes existing functionality to work as expected)
+// - [ ]  Breaking change (fix or feature that would cause existing functionality to not work as expected)
+// # Purpose
+// - Create files: ContextProvider.tsx, Index.tsx
+// - Access initial state across all files
+// - Refactor Main Canvas to be consistent with app's design
+// - Debug TypeScript errors
+// - Restructure all parent/child relationship 
+// # Approach
+// - Use of React's Context provider and create a global store
+// - Use of Material designs for MainCanvas
+
 
 export const MainCanvas = (props:any) => {
   const classes = useStyles();
