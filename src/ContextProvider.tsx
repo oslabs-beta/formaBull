@@ -44,7 +44,7 @@ export const ContextProvider = ({ children }: any) => {
     //     [...oldArr, draggableElement[0]]
     // )
     // console.log(listOfDraggableElements);
-    }
+    // }
 
   //create a function that will make a clone of object(from listofDraggableElements) being dragged
     //u
@@ -100,7 +100,7 @@ export const ContextProvider = ({ children }: any) => {
         setListOfDraggableElements,
         listOfDroppedElements,
         setListOfDroppedElements,
-        // elementDropped,
+        elementDropped,
         // elementCycle
     };
 
