@@ -87,7 +87,7 @@ export const MenuDrawer = (props:any) => {
             {list(anchor)}
           </Drawer>
         </React.Fragment>
-       ))}
+      ))}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import DefaultForm from './DefaultForm';
 import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { Resizable } from 're-resizable';
