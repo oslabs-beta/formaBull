@@ -54,40 +54,67 @@ export const ContextProvider = ({ children }: any) => {
         {
             id: 1,
             status: 'not-dropped',
-            title: 'lastName',
-            data: `<label>Last Name</label>
-            <input name="lastName" defaultValue="Bravo" ref={register} />`
+            title: 'FirstName',
+            data: `<label>First name</label>
+            <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
+            {errors.firstName && "First name is required"}`
         },
         {
             id: 2,
             status: 'not-dropped',
-        title: 'age',
-    data: `<label>Age</label>
-            <input name="age" type="number" defaultValue="22" ref={register} />`
-    },
+            title: 'LastName',
+            data: `<label>Last name</label>
+            <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
+            {errors.lastName && "Last name is required"}`
+        },
         {
             id: 3,
             status: 'not-dropped',
-        title: 'password',
-    data: `<label>Password</label>
+            title: 'password',
+            data: `<label>Password</label>
             <input name="password" type="password" ref="{register} />`
         },
         {
             id: 4,
             status: 'not-dropped',
-        title: 'genderBinary',
-    data: `<label>Gender</label>
-            <input name="gender" type="radio" id="male" value="male" /><label for="male">Male</label><br />
-            <input name="gender" type="radio" id="female" value="female" /><label for="female">Female</label>`
+            title: 'U smoke?',
+            data: `<label>U smoke?</label>
+            <input name="gender" type="radio" id="yes" value="yes" /><label for="yes">yes</label><br />
+            <input name="gender" type="radio" id="no" value="no" /><label for="no">no</label>`
         },
         {
-        id: 5,
-        status: 'not-dropped',
-        title: 'checkBox',
-    data: `<label>Check Box</label>
+            id: 5,
+            status: 'not-dropped',
+            title: 'checkBox',
+            data: `<label>Check Box</label>
             <input name="checkBox" type="checkbox" id="item1" name="item1" /><label for="item1">Item1</label><br />
             <input name="checkBox" type="checkbox" id="item2" name="item2" /><label for="item2">Item2</label>`
         },
+        {
+            id: 6,
+            status: 'not-dropped',
+            title: 'Submit',
+            data: `<input type="submit" />`
+        },
+        {
+            id: 7,
+            status: 'not-dropped',
+            title: 'Gender',
+            data: `<label>Gender</label>
+            <select name="gender" ref={register}>
+            <option value="female">female</option>
+            <option value="male">male</option>
+            <option value="other">other</option>
+            </select>`
+      },
+      {
+            id: 8,
+            status: 'not-dropped',
+            title: 'Age',
+            data: `<label>Age</label>
+            <input name="age" type="number" ref={register({ min: 18, max: 99 })} />
+            {errors.age && "age must be between 18 and 99"}`
+      } 
     ]);
 
 

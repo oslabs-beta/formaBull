@@ -34,8 +34,8 @@ import { useForm } from "react-hook-form";
     const onSubmit = data => console.log(data);
 
     return (
-      <div className = 'default-form'>${cleanedUpResults}
-      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>${cleanedUpResults}
+      </form>
     );
   };`
 
