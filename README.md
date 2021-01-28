@@ -1,4 +1,4 @@
-<h1 style="text-align:center;font-family:Impact">forma<span style="color:hotpink">Bull</span></h1>
+<h1 align="center">forma<span style="color:hotpink">Bull</span></h1>
 
 <p style="text-align:center">
 <img src="https://img.shields.io/badge/react-%5E17.0.1-blue" />
@@ -12,16 +12,13 @@
 ![formaBull logo](./assets/formabull_logo_whitebg.png)
 
 <h3 align="center"> Forms with React and Hooks simplified:<br> Click » Drag » Drop » Done.</h3>
-<hr>
 
-<h2> Description</h2>
+<h2>Description</h2>
 <p>formaBull is an Electron application for React Developers who want to quickly generate forms.  You can create the shape of your forms by dragging elements in, and style them in-app by adjusting sliders in the Style tab.  Forms will be saved to your account, and you can switch among them as needed.</p>
-<br />
 
 ## Technologies Used
 React, Typescript, Electron, VS Code, Material-UI
 
-<br />
 
 ## Technical Description
 To run this app, do the following:
@@ -38,9 +35,6 @@ If you want to run as a developer:
 * open two terminals
 * run `npm run dev:react` in one terminal,
 * and run `npm run dev:electron` in the other terminal. 
-<br>
-<br>
-<hr>
 
 ### What Needs Work?
 Currently, we are serving a default form.  Customization to come.<br>
