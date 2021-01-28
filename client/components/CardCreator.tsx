@@ -33,11 +33,12 @@ export const CardCreator = (props:any) => {
         isDragging: !!monitor.isDragging(),
     })
 });
+
     return (
         <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
         <TextField 
         id="standard-basic" 
-        label='Name'
+        label={props.title}
         >
         </TextField>
         </div>

@@ -62,7 +62,7 @@ export const MainCanvas = (props:any) => {
     ref={drop}
     className={classes.root}
     >
-      {isActive ? 'Release to drop' : 'Drag a box here'}
+      {isActive ? '' : ''}
       <div>
         <Box>
 
