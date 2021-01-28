@@ -73,17 +73,17 @@ export const RightSideBar = (props:any) => {
 
   return (
     <div>
-    <div className={classes.root}>
-      {/* classes.backgroundColor hook being used for a specific div */}
-      <div className={classes.backgroundColor}>
-        <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
-          <StyledTab label="Code" />
-          <StyledTab label="CSS" />
-        </StyledTabs>
-        <Typography className={classes.padding} />
+      <div className={classes.root}>
+        {/* classes.backgroundColor hook being used for a specific div */}
+        <div className={classes.backgroundColor}>
+          <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
+            <StyledTab label="Code" />
+            <StyledTab label="CSS" />
+          </StyledTabs>
+          <Typography className={classes.padding} />
+        </div>
       </div>
-    </div>
-    <Output />
+      <Output />
     </div>
   );
 }
