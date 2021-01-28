@@ -38,19 +38,19 @@ export const MainCanvas = (props:any) => {
   const { listOfDroppedElements }: any = useContext(AppContext);
   
   const[{ isOver, canDrop }, drop] = useDrop({
-      //need to specify what type of item to accept
-      accept: ItemTypes.CARD,
+    //need to specify what type of item to accept
+    accept: ItemTypes.CARD,
 
-      //drop will only be called during drop event, always takes item and monitor,monitor will pass info about the specific item being dropped. for example item id
-      drop: (item: any, monitor) => {
-        elementDropped(item.id)
-        // elementCycle(item.id)
-      },  
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver(),
-        canDrop: !!monitor.canDrop(),
-      })
+    //drop will only be called during drop event, always takes item and monitor,monitor will pass info about the specific item being dropped. for example item id
+    drop: (item: any, monitor) => {
+      elementDropped(item.id)
+      // elementCycle(item.id)
+    },  
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+      canDrop: !!monitor.canDrop(),
     })
+  })
     
     // console.log(listOfDroppedElements[0].id)
 
@@ -78,9 +78,9 @@ export const MainCanvas = (props:any) => {
             category={draggableElement.category}
             title={draggableElement.title}
           />
-       ))
+        ))
       }
     {props.children}
     </div>
   )
- }
+}

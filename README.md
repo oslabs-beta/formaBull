@@ -1,6 +1,6 @@
 <h1 align="center">forma<span style="color:hotpink">Bull</span></h1>
 
-<p style="text-align:center">
+<p align="center">
 <img src="https://img.shields.io/badge/react-%5E17.0.1-blue" />
 <img src="https://img.shields.io/badge/electron-%5E11.2.0-blue" />
 <img src="https://img.shields.io/badge/node-12.19.0-blue" />

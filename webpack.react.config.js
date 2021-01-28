@@ -4,15 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js", '.jsx'],
-    mainFields: ["main", "module", "browser"],
-
+    mainFields: ["main", "module", "browser"]
   },
   entry: "./src/index.tsx",
   target: "electron-renderer", //if this is removed you can view your app on the localhost
   devtool: "source-map",
-
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(js|jsx|ts|tsx)$/,
         // Exclude node modules because majority are ES5 compatible and it will save time to not go through all the modules to check for compatibility.
         exclude: /node_modules/,
@@ -41,4 +40,4 @@ module.exports = {
   plugins: [new HtmlWebpackPlugin({
     template: './index.html' // creates on HTML file for development and production without it, it would create two different one for each envionement.
   })],
-}
+};
