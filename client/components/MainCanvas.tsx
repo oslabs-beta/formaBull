@@ -34,7 +34,7 @@ export const MainCanvas = (props:any) => {
   //turn canvas into droppable target by using useDrop hook
   //returns addedProps drop will be used as a ref
   // const { elementDropped, elementCycle } = useContext(CardContext);
-  const { elementDropped, elementCycle }: any = useContext(AppContext);
+  const { elementDropped }: any = useContext(AppContext);
   const { listOfDroppedElements }: any = useContext(AppContext);
   
   const[{ isOver, canDrop }, drop] = useDrop({
@@ -43,8 +43,8 @@ export const MainCanvas = (props:any) => {
 
       //drop will only be called during drop event, always takes item and monitor,monitor will pass info about the specific item being dropped. for example item id
       drop: (item: any, monitor) => {
-        elementDropped(item.id),
-        elementCycle(item.id)
+        elementDropped(item.id)
+        // elementCycle(item.id)
       },  
       collect: (monitor) => ({
         isOver: !!monitor.isOver(),
@@ -69,7 +69,7 @@ export const MainCanvas = (props:any) => {
         </Box>
       </div>
       {listOfDroppedElements
-        .filter((draggableElement: any, i: any) => draggableElement.status === 'dropped')
+        // .filter((draggableElement: any, i: any) => draggableElement.status === 'dropped')
         .map((draggableElement: any, i: any) => (
           <CardCreator
           //took out draggableElement.id.toString()

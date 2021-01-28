@@ -6,31 +6,44 @@ import { AppContext } from './index'
 export const ContextProvider = ({ children }: any) => {
 
   const elementDropped = (id: any) => {
+    //filter over listOfDraggableElements by id, returns an array with one element(object)
+    const draggableElementArr = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id === id);
+    //clone the array 
+    var clonedArr = JSON.parse(JSON.stringify(draggableElementArr))
 
-    const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id === id);
+    clonedArr[0].status = "dropped"
+    console.log('clonedArr', clonedArr[0]);
 
-    draggableElement[0].status = 'dropped'
-    // draggableElement[0].id =  (Math.random() * 1000) << 0
-    console.log(draggableElement[0].id)
+    // Push method for React hooks, you can't use .push() method when using hooks.
+    setListOfDroppedElements((oldArr):any => [...oldArr, clonedArr[0]])
 
-    setListOfDroppedElements(listOfDroppedElements.filter((draggableElement, i) => draggableElement.id !== id).concat(draggableElement[0]));
-    // console.log(listOfDroppedElements);
+     console.log(listOfDraggableElements);
+  
+    // setListOfDroppedElements(listOfDroppedElements.filter((draggableElement, i) => draggableElement.id !== id).concat(clonedArr[0]));
   }
 
 
-  const elementCycle = (id: any) => {
-    console.log("element cycle is working!!!")
-    //changed === to !==
-    const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id);
+//   const elementCycle = (id: any) => {
+//     console.log("element cycle is working!!!")
+//     //changed === to !==
+//     const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id);
+    
+//     console.log(`draggableElement:`, draggableElement);
 
-    setListOfDraggableElements(listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id).concat(draggableElement[0]))
+//     setListOfDraggableElements(listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id).concat(draggableElement[0]))
 
-    // setListOfDraggableElements(oldArr => 
-    //     [...oldArr, draggableElement[0]]
-    // )
-    // console.log(listOfDraggableElements);
-  }
+//     console.log("LIST OF DRAGGABLE ELEMENTS", listOfDraggableElements)
 
+//     //This is the push method for setting state that uses an array
+//     // setListOfDraggableElements(oldArr => 
+//     //     [...oldArr, draggableElement[0]]
+//     // )
+//     // console.log(listOfDraggableElements);
+//   }
+
+  //create a function that will make a clone of object(from listofDraggableElements) being dragged
+    //u
+  //return or pace that clone in our listOfDroppedElements
 
     const [listOfDraggableElements, setListOfDraggableElements] = useState([
         {
@@ -54,14 +67,7 @@ export const ContextProvider = ({ children }: any) => {
     ]);
 
 
-    const [listOfDroppedElements, setListOfDroppedElements] = useState([
-        {
-            id: 0,
-            status: '',
-            category: '',
-            title: '',
-        }
-    ]);
+    const [listOfDroppedElements, setListOfDroppedElements] = useState([]);
 
 
     //Global Store
@@ -71,7 +77,7 @@ export const ContextProvider = ({ children }: any) => {
         listOfDroppedElements,
         setListOfDroppedElements,
         elementDropped,
-        elementCycle
+        // elementCycle
     };
 
     return (
