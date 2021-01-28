@@ -20,22 +20,22 @@ app.on('ready', () => {
       // contextIsolation: true, THIS HAS CONFLICT WITH TYPESCRIPT
       webSecurity: false,
     }
-  });
+    });
 
 
   
   // hide the default menu bar that comes with the browser window
   window.setMenuBarVisibility(false); //NOTE changed from null to false
   
-      // load a website to display
-      window.loadFile('index.html'); //This is just for production, not used for development
-      window.loadURL(`http://localhost:4000`); // development 
-      window.webContents.openDevTools(); 
-    });
+  // load a website to display
+  window.loadFile('index.html'); //This is just for production, not used for development
+  window.loadURL(`http://localhost:4000`); // development 
+  window.webContents.openDevTools(); 
+});
 
 
-    // app.whenReady().then(() => {
-    //   installExtension(REACT_DEVELOPER_TOOLS)
-    //       .then((name) => console.log(`Added Extension:  ${name}`))
-    //       .catch((err) => console.log('An error occurred: ', err));
-    // }); 
+// app.whenReady().then(() => {
+//   installExtension(REACT_DEVELOPER_TOOLS)
+//       .then((name) => console.log(`Added Extension:  ${name}`))
+//       .catch((err) => console.log('An error occurred: ', err));
+// }); 

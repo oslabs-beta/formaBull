@@ -77,7 +77,6 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      
       <AppBar className={classes.backgroundColor} position="static">
         <Toolbar>
           <MenuDrawer />

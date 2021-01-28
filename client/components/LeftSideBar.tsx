@@ -68,6 +68,8 @@ export const LeftSideBar = (props:any) => {
   const [value, setValue] = React.useState(0);
   const { listOfDraggableElements }: any = useContext(AppContext);
 
+  const output = <div> Hello </div>
+  
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
@@ -79,7 +81,9 @@ export const LeftSideBar = (props:any) => {
       <div className={classes.backgroundColor}>
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
           <StyledTab label="Edit" />
-          <StyledTab label="Add" />
+          <StyledTab label="Add">
+            <CardCreator />
+          </StyledTab>
           <StyledTab label="Style" />
         </StyledTabs>
         <Typography className={classes.padding} />

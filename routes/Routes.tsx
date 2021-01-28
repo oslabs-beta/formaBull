@@ -5,5 +5,4 @@ export const navLinks = [
   { title: `Contact`, path: `/contact` },
   { title: `Help`, path: `/help` },
   { title: `Take a Tour`, path: `/take-a-tour` }
-]
-
+];
