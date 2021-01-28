@@ -2,7 +2,6 @@ import React, {useContext} from 'react';
 import DefaultForm from './DefaultForm';
 import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import TestRenderer from 'react-test-renderer';
 import Navbar from './NavBar';
 import { Resizable } from 're-resizable';
 // import jsxToString from 'jsx-to-string';
@@ -13,7 +12,7 @@ export default function Output() {
   const state = useContext(ContextProvider);
   console.log(state); // an array of the components
 
-  const injectFunc = (state) => {
+  const injectFunc = (state: any) => {
     const result = [];
     for(let obj of state.componentOptions) {
       // console.log(obj)
@@ -45,26 +44,26 @@ export default function Output() {
     );
   };
       
-      `
+`;
 
   return (
     <Resizable
-  defaultSize={{
-  width: 325,
-  height: 700
-  }}
->
-    <ScrollToBottom>
-    <div className = 'output'>
-      <CopyBlock 
-        text={parse}
-        showLineNumbers={true}
-        codeBlock
-        language="typescript"
-        theme={dracula}
-      />
-    </div>
-    </ScrollToBottom>
+      defaultSize={{
+      width: 325,
+      height: 700
+      }}
+    >
+      <ScrollToBottom>
+        <div className = 'output'>
+          <CopyBlock 
+            text={parse}
+            showLineNumbers={true}
+            codeBlock
+            language="typescript"
+            theme={dracula}
+          />
+        </div>
+      </ScrollToBottom>
     </Resizable>
   );
 }
