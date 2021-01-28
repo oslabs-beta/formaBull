@@ -33,28 +33,29 @@ export const CardCreator = (props:any) => {
     isDragging: !!monitor.isDragging(),
   })
 });
-  return (
-    <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-    <TextField 
-    id="standard-basic" 
-    label='Name'
-    >
-    </TextField>
-    </div>
-    // <Card  
-    // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
-    // <Card.Body>
-    //     <Card.Title>First Name</Card.Title>
-    //     {/* <Card.Text>
-    //     All I want is Drag and Drop functionality
-    //     </Card.Text> */}
-    //     {/* <Button variant="primary">Do Something</Button> */}
-    // </Card.Body> 
-    // </Card>
-    // {/* <> */}
-    // {/* <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} > */}
-    //     {/* ♘ */}
-    //     {/* <DefaultForm /> */}
-    // </div>
-  )
+
+    return (
+        <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
+        <TextField 
+        id="standard-basic" 
+        label={props.title}
+        >
+        </TextField>
+        </div>
+        // <Card  
+        // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
+        // <Card.Body>
+        //     <Card.Title>First Name</Card.Title>
+        //     {/* <Card.Text>
+        //     All I want is Drag and Drop functionality
+        //     </Card.Text> */}
+        //     {/* <Button variant="primary">Do Something</Button> */}
+        // </Card.Body> 
+        // </Card>
+        // {/* <> */}
+        // {/* <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} > */}
+        //     {/* ♘ */}
+        //     {/* <DefaultForm /> */}
+        // </div>
+    )
 }
