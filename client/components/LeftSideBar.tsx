@@ -87,7 +87,7 @@ export const LeftSideBar = (props:any) => {
       <div>
         <Box bgcolor='yellow' height='auto' width='100px'>
           {listOfDraggableElements
-            .filter((draggableElement: any, i: any) => draggableElement.status === 'not-dropped')
+            // .filter((draggableElement: any, i: any) => draggableElement.status === 'not-dropped')
             .map((draggableElement: any, i: any) => (
               <CardCreator
               //took out draggableElement.id.toString()
