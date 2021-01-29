@@ -1,7 +1,8 @@
 import React from 'react'
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Tabs, Tab, Typography } from '@material-ui/core/';
-import Output from './Output';
+import { Tabs, Tab, Typography, Box } from '@material-ui/core/';
+import { Output } from './Output';
+import { CSSTab } from './CSSTab';
 
 
 interface StyledTabsProps {
@@ -27,6 +28,7 @@ const StyledTabs = withStyles({
 
 interface StyledTabProps {
   label: string;
+  index: number;
 }
 
 
@@ -61,7 +63,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 
-
 export const RightSideBar = (props:any) => {
   // This is used to set the hook/set state
   const classes = useStyles();
@@ -71,19 +72,56 @@ export const RightSideBar = (props:any) => {
     setValue(newValue);
   };
 
+  // TS interface for TabPanel function Props
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: any;
+  value: any;
+}
+
+  // Differentiate content on each individual tab
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box >
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
   return (
     <div>
       <div className={classes.root}>
         {/* classes.backgroundColor hook being used for a specific div */}
         <div className={classes.backgroundColor}>
           <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
-            <StyledTab label="Code" />
-            <StyledTab label="CSS" />
+            <StyledTab label="Code" index={0} />
+            <StyledTab label="CSS" index={1} />
           </StyledTabs>
           <Typography className={classes.padding} />
         </div>
       </div>
+      <div>
+      <TabPanel value={value} index={0}>
       <Output />
+      </TabPanel>
+      </div>
+      <div>
+      <TabPanel value={value} index={1}>
+        <CSSTab />
+      </TabPanel>
+      </div>
     </div>
   );
 }

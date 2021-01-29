@@ -62,7 +62,7 @@ export const MainCanvas = (props:any) => {
     ref={drop}
     className={classes.root}
     >
-    {isActive ? '' : ''}
+    {isActive ? 'Let it drop!' : 'Drop things here!'}
     <div>
       <Box>
 
@@ -73,13 +73,13 @@ export const MainCanvas = (props:any) => {
       .map((draggableElement: any, i: any) => (
         <CardCreator
         //took out draggableElement.id.toString()
-          key={(Math.random() * 1000) << 0}
+        key={(Math.random() * 1000) << 0}
           id={draggableElement.id}
           category={draggableElement.category}
           title={draggableElement.title}
-        />
-      ))
-    }
+          />
+          ))
+        }
     {props.children}
     </div>
   )

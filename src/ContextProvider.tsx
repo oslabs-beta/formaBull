@@ -10,7 +10,7 @@ export const ContextProvider = ({ children }: any) => {
     const draggableElementArr = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id === id);
 
     //clone the array returned from filter() method 
-    var clonedArr = JSON.parse(JSON.stringify(draggableElementArr))
+    let clonedArr = JSON.parse(JSON.stringify(draggableElementArr))
 
     clonedArr[0].status = "dropped"
     // console.log('clonedArr', clonedArr[0]);
