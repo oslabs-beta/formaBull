@@ -3,7 +3,9 @@ import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/s
 import { Tabs, Tab, Box, Typography } from '@material-ui/core';
 import { AppContext } from '../../src/'
 import { CardCreator } from './CardCreator';
-
+import { AddTab } from '../components/AddTab'
+import { EditTab } from '../components/EditTab'
+import { StyleTab } from '../components/StyleTab'
 
 interface StyledTabsProps {
   value: number;
@@ -28,6 +30,7 @@ const StyledTabs = withStyles({
 
 interface StyledTabProps {
   label: string;
+  index: number;
 }
 
 
@@ -68,7 +71,6 @@ export const LeftSideBar = (props:any) => {
   const [value, setValue] = React.useState(0);
   const { listOfDraggableElements }: any = useContext(AppContext);
 
-  const output = <div> Hello </div>
   
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -76,34 +78,63 @@ export const LeftSideBar = (props:any) => {
 
   // console.log(listOfDraggableElements[0].id)
 
+  // TS interface for TabPanel function Props
+  interface TabPanelProps {
+    children?: React.ReactNode;
+    index: any;
+    value: any;
+  }
+  
+  // Differentiate content on each individual tab
+  function TabPanel(props: TabPanelProps) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box >
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+
+
   return (
     <div className={classes.root}>
       <div className={classes.backgroundColor}>
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
-          <StyledTab label="Edit" />
-          <StyledTab label="Add">
-            <CardCreator />
-          </StyledTab>
-          <StyledTab label="Style" />
+        <StyledTab label="Edit" index={0} />
+        <StyledTab label="Add" index={1}>
+          <CardCreator />
+        </StyledTab>
+        <StyledTab label="Style" index={2} />
         </StyledTabs>
         <Typography className={classes.padding} />
       </div>
       <div>
-        <Box bgcolor='yellow' height='auto' width='100px'>
-          {listOfDraggableElements
-            // .filter((draggableElement: any, i: any) => draggableElement.status === 'not-dropped')
-            .map((draggableElement: any, i: any) => (
-              <CardCreator
-              //took out draggableElement.id.toString()
-                key={(Math.random() * 1000) << 0}
-                id={draggableElement.id}
-                category={draggableElement.category}
-                title={draggableElement.title}
-              />
-            ))
-          }
-        </Box>
-    </div>
+        <TabPanel value={value} index={0}>
+          <EditTab />
+        </TabPanel>
+      </div>
+      <div>
+        <TabPanel value={value} index={1}>
+          <AddTab />
+        </TabPanel>
+      </div>
+      <div>
+        <TabPanel value={value} index={2}>
+         <StyleTab /> 
+        </TabPanel>
+      </div>
     </div>
   );
 }

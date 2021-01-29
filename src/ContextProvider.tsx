@@ -8,17 +8,18 @@ export const ContextProvider = ({ children }: any) => {
   const elementDropped = (id: any) => {
     //filter over listOfDraggableElements by id, returns an array with one element(object)
     const draggableElementArr = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id === id);
-    //clone the array 
-    var clonedArr = JSON.parse(JSON.stringify(draggableElementArr))
+
+    //clone the array returned from filter() method 
+    let clonedArr = JSON.parse(JSON.stringify(draggableElementArr))
 
     clonedArr[0].status = "dropped"
-    console.log('clonedArr', clonedArr[0]);
+    // console.log('clonedArr', clonedArr[0]);
 
     // Push method for React hooks, you can't use .push() method when using hooks.
     setListOfDroppedElements((oldArr):any => [...oldArr, clonedArr[0]])
 
-    console.log(listOfDraggableElements);
-  
+    //  console.log(listOfDraggableElements);
+
     // setListOfDroppedElements(listOfDroppedElements.filter((draggableElement, i) => draggableElement.id !== id).concat(clonedArr[0]));
 };
 
@@ -188,20 +189,19 @@ ComponentLinkedList.prototype.remove = function (val) {
   next.prev = prev;
 }
 
-  //Global Store
-  const context: any = {
-    listOfDraggableElements,
-    setListOfDraggableElements,
-    listOfDroppedElements,
-    setListOfDroppedElements,
-    elementDropped,
-    // elementCycle
-  };
+    //Global Store
+    const context: any = {
+        listOfDraggableElements,
+        setListOfDraggableElements,
+        listOfDroppedElements,
+        setListOfDroppedElements,
+        elementDropped,
+    };
 
-  return (
-    // Global Store being passed as value
-    <AppContext.Provider  value={context}>
-      {children}
-    </AppContext.Provider >
-  )
+    return (
+        // Global Store being passed as value
+        <AppContext.Provider  value={context}>
+            {children}
+        </AppContext.Provider >
+    )
 };

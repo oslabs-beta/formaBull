@@ -1,3 +1,4 @@
+// JS way, destructure
 const { app, BrowserWindow } = require('electron');
 
 

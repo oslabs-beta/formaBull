@@ -4,7 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import { Resizable } from 're-resizable';
 import { AppContext } from '../../src/'
 
-export default function Output() {
+export const Output = () => {
   /// use hook to check the current elements dropped on canva 
   const { listOfDroppedElements }: any = useContext(AppContext);
   // get all output strings in an array
