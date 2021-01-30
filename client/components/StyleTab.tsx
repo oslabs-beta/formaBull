@@ -4,7 +4,7 @@ import { AppContext } from '../../src/'
 import { CardCreator } from '../components/CardCreator'
 
 
-export const StyleTab = () => {
+export const StyleTab = (props:any) => {
 
   return (
     <div>
