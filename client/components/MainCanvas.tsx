@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useDrop } from 'react-dnd';
-import { Box } from '@material-ui/core'
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import { ItemTypes } from '../utils/items';
 import { CardCreator } from './CardCreator';
@@ -63,11 +62,11 @@ export const MainCanvas = (props:any) => {
     className={classes.root}
     >
     {isActive ? 'Let it drop!' : 'Drop things here!'}
-    <div>
+    {/* <div>
       <Box>
-
+        HELLOOOOO
       </Box>
-    </div>
+    </div> */}
     {listOfDroppedElements
       // .filter((draggableElement: any, i: any) => draggableElement.status === 'dropped')
       .map((draggableElement: any, i: any) => (

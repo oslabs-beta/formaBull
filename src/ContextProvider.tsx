@@ -128,7 +128,7 @@ const ComponentLinkedList = () => {
   this.tail = null;
 };
     // class/function to create a node on linked list
-const Node = (val) => {
+const Node = (val:any) => {
   this.val = val;
   this.next = null;
   this.prev = null;

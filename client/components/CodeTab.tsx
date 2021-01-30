@@ -4,7 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import { Resizable } from 're-resizable';
 import { AppContext } from '../../src/'
 
-export const Output = () => {
+export const CodeTab = () => {
   /// use hook to check the current elements dropped on canva 
   const { listOfDroppedElements }: any = useContext(AppContext);
   // get all output strings in an array
@@ -41,12 +41,12 @@ import { useForm } from "react-hook-form";
   return (
     <Resizable
       defaultSize={{
-      width: 325,
-      height: 700
+      width: 335,
+      height: 500
       }}
     >
       <ScrollToBottom>
-        <div className = 'output'>
+      <div className = 'output'>
           <CopyBlock 
             text={parse}
             showLineNumbers={true}
@@ -54,8 +54,8 @@ import { useForm } from "react-hook-form";
             language="typescript"
             theme={dracula}
           />
-        </div>
+          </div>
       </ScrollToBottom>
-    </Resizable>
+  </Resizable>
   );
 }

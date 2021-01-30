@@ -1,14 +1,20 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import { TextField, Card } from '@material-ui/core'
+import { makeStyles, withStyles, Theme, createStyles, Box } from '@material-ui/core'
 import { ItemTypes } from '../utils/items';
 
 
-export const inputProps = {
-  label : ''
-}
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    backgroundColor: '#202020',
+  },
+}));
 
 export const CardCreator = (props:any) => {
+  const classes = useStyles();
+
 //useDrag returns an array of two things: an object that contains extra props(received from collecting functions), and a ref that binds and tells react-dnd that the result of this hook will be attached to the specific component
   const[{ isDragging }, drag] = useDrag({
   //takes two things: item and that item's type
@@ -36,26 +42,8 @@ export const CardCreator = (props:any) => {
 
     return (
         <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-        <TextField 
-        id="standard-basic" 
-        label={props.title}
-        >
-        </TextField>
+        <Box className={classes.root}>
+        </ Box>
         </div>
-        // <Card  
-        // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
-        // <Card.Body>
-        //     <Card.Title>First Name</Card.Title>
-        //     {/* <Card.Text>
-        //     All I want is Drag and Drop functionality
-        //     </Card.Text> */}
-        //     {/* <Button variant="primary">Do Something</Button> */}
-        // </Card.Body> 
-        // </Card>
-        // {/* <> */}
-        // {/* <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} > */}
-        //     {/* ♘ */}
-        //     {/* <DefaultForm /> */}
-        // </div>
     )
 }

@@ -4,7 +4,7 @@ import { AppContext } from '../../src/'
 import { CardCreator } from '../components/CardCreator'
 
 
-export const EditTab = () => {
+export const EditTab = (props:any) => {
 
   return (
     <div>

@@ -3,7 +3,7 @@ import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/s
 import { Tabs, Tab, Box, Typography } from '@material-ui/core';
 import { AppContext } from '../../src/'
 
-export const CSSTab = () => {
+export const CSSTab = (props:any) => {
   return (
     <div>
       CSS TAB
