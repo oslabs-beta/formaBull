@@ -41,11 +41,10 @@ import { useForm } from "react-hook-form";
   return (
     <Resizable
       defaultSize={{
-      width: 335,
+      width: 360,
       height: 500
       }}
     >
-      <ScrollToBottom>
       <div className = 'output'>
           <CopyBlock 
             text={parse}
@@ -53,9 +52,13 @@ import { useForm } from "react-hook-form";
             codeBlock
             language="typescript"
             theme={dracula}
+            customStyle={{
+              overflowY: 'scroll',
+              minWidth: '360',
+              maxHeight: '650'
+            }}
           />
           </div>
-      </ScrollToBottom>
   </Resizable>
   );
 }
