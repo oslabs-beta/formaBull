@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import { makeStyles, withStyles, Theme, createStyles, Box } from '@material-ui/core'
+import { makeStyles, Theme, Box, Typography } from '@material-ui/core'
 import { ItemTypes } from '../utils/items';
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -9,8 +10,41 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
     backgroundColor: '#202020',
+    width: '300px',
+    margin: 'auto',
+    height: '8px',
+    marginBottom: '15px',
+    marginTop: '8px',
+    borderStyle: 'solid',
+    borderWidth: '1.5px',
+    borderColor: '#F94EB4',
+    borderRadius: '3px',
+    display: 'flex',
   },
+  dragIndicator: {
+    padding: '0px',
+    fontSize: '35px',
+    // marginRight: '0.2em',
+    // marginLeft: '10px',
+    // margin: 'auto',
+    position: 'relative', 
+    bottom: '13px',
+    display: 'inline-block'
+  },
+  title: {
+    padding: '0px',
+    fontSize: '18px',
+    // marginRight: '9.9em',
+    position: 'relative', 
+    bottom: '10px',
+    marginLeft: 'auto',
+    // margin: 'auto',
+    // textAlign: 'center',
+    color: 'white',
+    display: 'inline-block'
+  }
 }));
+
 
 export const CardCreator = (props:any) => {
   const classes = useStyles();
@@ -40,10 +74,12 @@ export const CardCreator = (props:any) => {
   })
 });
 
-    return (
-        <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-        <Box className={classes.root}>
-        </ Box>
-        </div>
-    )
+  return (
+    <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
+      <Box className={classes.root} >
+        <DragIndicatorIcon style={{ color: 'white' }} className={classes.dragIndicator}/>
+        <Typography className={classes.title}>{props.title}</Typography>
+      </ Box>
+    </div>
+  )
 }

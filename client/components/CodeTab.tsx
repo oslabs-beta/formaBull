@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
-import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import { CopyBlock, dracula, nord, monokai, irBlack, hopscotch } from 'react-code-blocks';
 import { Resizable } from 're-resizable';
 import { AppContext } from '../../src/'
 
@@ -41,21 +40,24 @@ import { useForm } from "react-hook-form";
   return (
     <Resizable
       defaultSize={{
-      width: 335,
-      height: 500
+      width: 370,
+      height: 500,
       }}
     >
-      <ScrollToBottom>
       <div className = 'output'>
-          <CopyBlock 
+          <CopyBlock
             text={parse}
             showLineNumbers={true}
             codeBlock
             language="typescript"
             theme={dracula}
+            customStyle={{
+              overflowY: 'scroll',
+              minWidth: '360',
+              maxHeight: '765',
+            }}
           />
           </div>
-      </ScrollToBottom>
   </Resizable>
   );
 }

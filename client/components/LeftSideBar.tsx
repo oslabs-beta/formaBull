@@ -5,6 +5,7 @@ import { AddTab } from '../components/AddTab'
 import { EditTab } from '../components/EditTab'
 import { StyleTab } from '../components/StyleTab'
 
+
 interface StyledTabsProps {
   value: number;
   onChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
