@@ -49,12 +49,12 @@ import { useForm } from "react-hook-form";
     <SelectTheme />
     <Resizable
       defaultSize={{
-      width: 360,
-      height: 500
+      width: 370,
+      height: 500,
       }}
     >
       <div className = 'output'>
-          <CopyBlock 
+          <CopyBlock
             text={parse}
             showLineNumbers={true}
             codeBlock
@@ -63,7 +63,7 @@ import { useForm } from "react-hook-form";
             customStyle={{
               overflowY: 'scroll',
               minWidth: '360',
-              maxHeight: '650'
+              maxHeight: '765'    
             }}
           />
           </div>
