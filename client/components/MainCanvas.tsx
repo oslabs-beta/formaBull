@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
     // mx: "auto",
     padding: '0 30px',
     textAlign: 'center',
-    overflowY: 'scroll'
+    overflowY: 'scroll',
+    minWidth: 400
     },
     
   }));

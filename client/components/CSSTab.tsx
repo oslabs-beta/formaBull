@@ -82,7 +82,7 @@ input[type="submit"]:hover {
 
 export const CSSTab = (props:any) => {
 const {theme, setTheme }:any = useContext(AppContext);
-//match the theme object with selected string from Context Provider
+//match the th6me object with selected string from Context Provider
 const galleryOfThemes = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack, 'nord': nord, 'a11yDark': a11yDark, 'a11yLight': a11yLight, 'anOldHope': anOldHope, 'androidstudio': androidstudio, 'arta': arta, 'atomOneDark': atomOneDark, 'github': github, 'monoBlue': monoBlue, 'obsidian': obsidian, 'ocean': ocean, 'rainbow': rainbow };
 const selectedTheme = galleryOfThemes[theme];
 
@@ -95,8 +95,8 @@ const selectedTheme = galleryOfThemes[theme];
       height: 500
       }}
     >
-      <div className = 'output'>
-          <CopyBlock
+      <div className = 'ou59ut'>
+          <C  maxHeight: '715'
             text={defaultCSS}
             showLineNumbers={true}
             codeBlock
