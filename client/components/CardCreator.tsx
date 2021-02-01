@@ -1,14 +1,54 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import { TextField, Card } from '@material-ui/core'
+import { makeStyles, Theme, Box, Typography } from '@material-ui/core'
 import { ItemTypes } from '../utils/items';
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 
-export const inputProps = {
-  label : ''
-}
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    backgroundColor: '#202020',
+    width: '300px',
+    margin: 'auto',
+    height: '8px',
+    marginBottom: '15px',
+    marginTop: '8px',
+    borderStyle: 'solid',
+    borderWidth: '1.5px',
+    borderColor: '#F94EB4',
+    borderRadius: '3px',
+    display: 'flex',
+  },
+  dragIndicator: {
+    padding: '0px',
+    fontSize: '35px',
+    // marginRight: '0.2em',
+    // marginLeft: '10px',
+    // margin: 'auto',
+    position: 'relative', 
+    bottom: '13px',
+    display: 'inline-block'
+  },
+  title: {
+    padding: '0px',
+    fontSize: '18px',
+    // marginRight: '9.9em',
+    position: 'relative', 
+    bottom: '10px',
+    marginLeft: 'auto',
+    // margin: 'auto',
+    // textAlign: 'center',
+    color: 'white',
+    display: 'inline-block'
+  }
+}));
+
 
 export const CardCreator = (props:any) => {
+  const classes = useStyles();
+
 //useDrag returns an array of two things: an object that contains extra props(received from collecting functions), and a ref that binds and tells react-dnd that the result of this hook will be attached to the specific component
   const[{ isDragging }, drag] = useDrag({
   //takes two things: item and that item's type
@@ -34,28 +74,12 @@ export const CardCreator = (props:any) => {
   })
 });
 
-    return (
-        <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-        <TextField 
-        id="standard-basic" 
-        label={props.title}
-        >
-        </TextField>
-        </div>
-        // <Card  
-        // style={{opacity: isDragging ? 0.5 : 1, width: '18rem', border: '1px solid black'}}>
-        // <Card.Body>
-        //     <Card.Title>First Name</Card.Title>
-        //     {/* <Card.Text>
-        //     All I want is Drag and Drop functionality
-        //     </Card.Text> */}
-        //     {/* <Button variant="primary">Do Something</Button> */}
-        // </Card.Body> 
-        // </Card>
-        // {/* <> */}
-        // {/* <div ref={drag} style={{ fontSize: '14px', width: 'auto', opacity: isDragging ? 0.5 : 1}} > */}
-        //     {/* ♘ */}
-        //     {/* <DefaultForm /> */}
-        // </div>
-    )
+  return (
+    <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
+      <Box className={classes.root} >
+        <DragIndicatorIcon style={{ color: 'white' }} className={classes.dragIndicator}/>
+        <Typography className={classes.title}>{props.title}</Typography>
+      </ Box>
+    </div>
+  )
 }

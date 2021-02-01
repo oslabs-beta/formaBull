@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-export default function NavBar() {
+export const NavBar = (props:any) => {
   const classes = useStyles();
 
   return (

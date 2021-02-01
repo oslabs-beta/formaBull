@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Tabs, Tab, Typography, Box } from '@material-ui/core/';
-import { Output } from './Output';
+import { Tabs, Tab, Typography, Box, Container } from '@material-ui/core/';
+import { CodeTab } from './CodeTab';
 import { CSSTab } from './CSSTab';
 
 
@@ -22,6 +22,7 @@ const StyledTabs = withStyles({
       width: '100%',
       backgroundColor: '#000000',
     },
+
   },
 })((props: StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
@@ -36,11 +37,13 @@ interface StyledTabProps {
 const StyledTab = withStyles((theme: Theme) =>
   createStyles({
     root: {
+      flexGrow: 1,
       textTransform: 'none',
       color: '#fff',
       fontWeight: theme.typography.fontWeightRegular,
       fontSize: theme.typography.pxToRem(17),
       marginRight: theme.spacing(1),
+      marginLeft: theme.spacing(2),
       '&:focus': {
         opacity: 1,
       },
@@ -53,6 +56,7 @@ const StyledTab = withStyles((theme: Theme) =>
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
+    border: '10px',
   },
   padding: {
     padding: theme.spacing(1),
@@ -92,9 +96,11 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box >
-          <Typography>{children}</Typography>
-        </Box>
+        // <Container className={classes.root}>
+          <Box >
+            {children}
+          </Box>
+        // </Container>
       )}
     </div>
   );
@@ -105,22 +111,20 @@ function TabPanel(props: TabPanelProps) {
       <div className={classes.root}>
         {/* classes.backgroundColor hook being used for a specific div */}
         <div className={classes.backgroundColor}>
-          <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
+          <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example" >
             <StyledTab label="Code" index={0} />
             <StyledTab label="CSS" index={1} />
           </StyledTabs>
           <Typography className={classes.padding} />
         </div>
       </div>
+        <TabPanel value={value} index={0}>
+          <CodeTab />
+        </TabPanel>
       <div>
-      <TabPanel value={value} index={0}>
-      <Output />
-      </TabPanel>
-      </div>
-      <div>
-      <TabPanel value={value} index={1}>
-        <CSSTab />
-      </TabPanel>
+        <TabPanel value={value} index={1}>
+          <CSSTab />
+        </TabPanel>
       </div>
     </div>
   );

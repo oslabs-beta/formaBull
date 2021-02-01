@@ -9,7 +9,7 @@ app.on('ready', () => {
     height: 768,
     webPreferences: {
       nodeIntegration: true,
-      // contextIsolation: true, THIS HAS CONFLICT WITH TYPESCRIPT
+      contextIsolation: false,//THIS HAS CONFLICT WITH TYPESCRIPT
       webSecurity: false,
     }
   });

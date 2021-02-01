@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useDrop } from 'react-dnd';
-import { Box } from '@material-ui/core'
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import { ItemTypes } from '../utils/items';
 import { CardCreator } from './CardCreator';
@@ -13,19 +12,21 @@ const useStyles = makeStyles((theme: Theme) =>
     flexGrow: 1,
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     boxShadow: '0 3px 5px 7px rgba(255, 105, 135, .3)',
-    background: 'transparent',
+    background: '#fff',
     // boxShadow: 'none',
     border: 0,
     borderRadius: 3,
     color: 'black',
-    height: '139%',
+    height: '110%',
     width: 'auto',
     marginLeft: '50px',
     marginRight: '50px',
     // mx: "auto",
     padding: '0 30px',
-    textAlign: 'center'
+    textAlign: 'center',
+    overflowY: 'scroll'
     },
+    
   }));
 
 
@@ -62,25 +63,21 @@ export const MainCanvas = (props:any) => {
     ref={drop}
     className={classes.root}
     >
-    {isActive ? 'Let it drop!' : 'Drop things here!'}
-    <div>
-      <Box>
-
-      </Box>
-    </div>
+    {/* {isActive ? 'Let it drop!' : 'Drop things here!'} */}
     {listOfDroppedElements
-      // .filter((draggableElement: any, i: any) => draggableElement.status === 'dropped')
       .map((draggableElement: any, i: any) => (
-        <CardCreator
-        //took out draggableElement.id.toString()
-        key={(Math.random() * 1000) << 0}
+        <div style={{ width: '500px', margin: 'auto'}} >
+          <CardCreator 
+          //took out draggableElement.id.toString()
+          key={(Math.random() * 1000) << 0}
           id={draggableElement.id}
           category={draggableElement.category}
-          title={draggableElement.title}
+          title={draggableElement.title}     
           />
-          ))
-        }
-    {props.children}
+        </div>
+        ))
+      }
+    {/* {props.children} ----?*/}
     </div>
   )
 }

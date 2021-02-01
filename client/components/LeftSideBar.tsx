@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Tabs, Tab, Box, Typography } from '@material-ui/core';
-import { AppContext } from '../../src/'
-import { CardCreator } from './CardCreator';
+import { Tabs, Tab, Box, Typography, Container } from '@material-ui/core';
 import { AddTab } from '../components/AddTab'
 import { EditTab } from '../components/EditTab'
 import { StyleTab } from '../components/StyleTab'
+
 
 interface StyledTabsProps {
   value: number;
@@ -60,6 +59,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   padding: {
     padding: theme.spacing(1),
   },
+  containerPadding: {
+    padding: '3px'
+  },
   backgroundColor: {
     backgroundColor: '#F94EB4',
   },
@@ -69,14 +71,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const LeftSideBar = (props:any) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const { listOfDraggableElements }: any = useContext(AppContext);
-
   
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
-
-  // console.log(listOfDraggableElements[0].id)
 
   // TS interface for TabPanel function Props
   interface TabPanelProps {
@@ -98,25 +96,24 @@ export const LeftSideBar = (props:any) => {
         {...other}
       >
         {value === index && (
+        <Container className={classes.containerPadding}>
           <Box >
-            <Typography>{children}</Typography>
+            {children}
           </Box>
+        </Container>
         )}
       </div>
     );
   }
-  
-
+   
 
   return (
     <div className={classes.root}>
       <div className={classes.backgroundColor}>
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
-        <StyledTab label="Edit" index={0} />
-        <StyledTab label="Add" index={1}>
-          <CardCreator />
-        </StyledTab>
-        <StyledTab label="Style" index={2} />
+          <StyledTab label="Edit" index={0} />
+          <StyledTab label="Add" index={1} />
+          <StyledTab label="Style" index={2} />
         </StyledTabs>
         <Typography className={classes.padding} />
       </div>

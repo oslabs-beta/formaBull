@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
-import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import { CopyBlock, dracula, nord, monokai, irBlack, hopscotch } from 'react-code-blocks';
 import { Resizable } from 're-resizable';
 import { AppContext } from '../../src/'
 
-export const Output = () => {
+export const CodeTab = () => {
   /// use hook to check the current elements dropped on canva 
   const { listOfDroppedElements }: any = useContext(AppContext);
   // get all output strings in an array
@@ -41,21 +40,24 @@ import { useForm } from "react-hook-form";
   return (
     <Resizable
       defaultSize={{
-      width: 325,
-      height: 700
+      width: 370,
+      height: 500,
       }}
     >
-      <ScrollToBottom>
-        <div className = 'output'>
-          <CopyBlock 
+      <div className = 'output'>
+          <CopyBlock
             text={parse}
             showLineNumbers={true}
             codeBlock
             language="typescript"
             theme={dracula}
+            customStyle={{
+              overflowY: 'scroll',
+              minWidth: '360',
+              maxHeight: '765',
+            }}
           />
-        </div>
-      </ScrollToBottom>
-    </Resizable>
+          </div>
+  </Resizable>
   );
 }
