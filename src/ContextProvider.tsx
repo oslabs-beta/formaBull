@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AppContext } from './index';
+import { SelectTheme } from '../client/components/SelectTheme'
 
 
 //Our provider component takes a value (we’re calling it context, but it can be named anything) and then make it accessible to any of the children components. This value is essentially our global store. 
@@ -118,9 +119,9 @@ export const ContextProvider = ({ children }: any) => {
     } 
   ]);
 
-
   const [listOfDroppedElements, setListOfDroppedElements] = useState([]);
-
+  // set initial state for SelectTheme component
+  const [theme, setTheme] = useState('dracula'); 
   ///// LL// 
   // class/function to create linked list on main
 const ComponentLinkedList = () => {
@@ -196,6 +197,8 @@ ComponentLinkedList.prototype.remove = function (val) {
         listOfDroppedElements,
         setListOfDroppedElements,
         elementDropped,
+        theme,
+        setTheme
     };
 
     return (

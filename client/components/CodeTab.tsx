@@ -1,12 +1,13 @@
-import React, {useContext} from 'react';
-import { CopyBlock, dracula, nord, monokai } from 'react-code-blocks';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import React, {useContext, useState} from 'react';
+import { CopyBlock, dracula, nord, monokai, irBlack } from 'react-code-blocks';
 import { Resizable } from 're-resizable';
 import { AppContext } from '../../src/'
+import { SelectTheme } from './SelectTheme'
 
 export const CodeTab = () => {
   /// use hook to check the current elements dropped on canva 
   const { listOfDroppedElements }: any = useContext(AppContext);
+  const {theme, setTheme }:any = useContext(AppContext);
   // get all output strings in an array
   const injectFunc = (listofDraggableElements:any) => {
     const result = [];
@@ -16,6 +17,11 @@ export const CodeTab = () => {
     return result
   }
 
+
+
+console.log(dracula)
+const galleryOfThemes = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack}
+const selectedTheme = galleryOfThemes[theme];
 
   //display each output string on a separate line in right order
   const componentResults = injectFunc(listOfDroppedElements);
@@ -39,6 +45,8 @@ import { useForm } from "react-hook-form";
   };`
 
   return (
+    <div>
+    <SelectTheme />
     <Resizable
       defaultSize={{
       width: 360,
@@ -51,7 +59,7 @@ import { useForm } from "react-hook-form";
             showLineNumbers={true}
             codeBlock
             language="typescript"
-            theme={dracula}
+            theme={selectedTheme}
             customStyle={{
               overflowY: 'scroll',
               minWidth: '360',
@@ -60,5 +68,6 @@ import { useForm } from "react-hook-form";
           />
           </div>
   </Resizable>
+  </div>
   );
 }
