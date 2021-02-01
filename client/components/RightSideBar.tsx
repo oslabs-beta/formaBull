@@ -96,11 +96,9 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        // <Container className={classes.root}>
           <Box >
             {children}
           </Box>
-        // </Container>
       )}
     </div>
   );
