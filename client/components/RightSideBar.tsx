@@ -37,6 +37,7 @@ interface StyledTabProps {
 const StyledTab = withStyles((theme: Theme) =>
   createStyles({
     root: {
+      flexGrow: 1,
       textTransform: 'none',
       color: '#fff',
       fontWeight: theme.typography.fontWeightRegular,
@@ -55,6 +56,7 @@ const StyledTab = withStyles((theme: Theme) =>
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
+    border: '10px',
   },
   padding: {
     padding: theme.spacing(1),
@@ -94,11 +96,11 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Container>
+        // <Container className={classes.root}>
           <Box >
             {children}
           </Box>
-        </Container>
+        // </Container>
       )}
     </div>
   );
