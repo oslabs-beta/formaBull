@@ -49,7 +49,7 @@ import { useForm } from "react-hook-form";
     <SelectTheme />
     <Resizable
       defaultSize={{
-      width: 370,
+      width: 360,
       height: 500,
       }}
     >
@@ -62,8 +62,8 @@ import { useForm } from "react-hook-form";
             theme={selectedTheme}
             customStyle={{
               overflowY: 'scroll',
-              minWidth: '360',
-              maxHeight: '765'    
+              minWidth: '359',
+              maxHeight: '715'    
             }}
           />
           </div>

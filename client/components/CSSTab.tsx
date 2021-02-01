@@ -104,8 +104,8 @@ const selectedTheme = galleryOfThemes[theme];
             theme={selectedTheme}
             customStyle={{
               overflowY: 'scroll',
-              minWidth: '360',
-              maxHeight: '700'
+              minWidth: '359',
+              maxHeight: '715'
             }}
           />
           </div>
