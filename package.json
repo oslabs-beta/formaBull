@@ -10,7 +10,8 @@
     "build:react": "NODE_ENV=production webpack --config webpack.react.config.js --mode production",
     "build": "npm run build:electron && npm run build:react",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",
@@ -31,6 +32,7 @@
     "@material-ui/icons": "^4.11.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "electron": "^9.4.2",
     "fontsource-roboto": "^4.0.0",
     "jsx-to-string": "^1.4.0",
     "pretty-format": "^26.6.2",
@@ -55,8 +57,8 @@
     "@types/react-router-dom": "^5.1.7",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
-    "electron": "^11.2.0",
     "electron-builder": "^22.9.1",
+    "electron-chromedriver": "^11.0.0",
     "electron-devtools-installer": "^3.1.1",
     "electron-react-devtools": "^0.5.3",
     "html-webpack-plugin": "^4.5.1",

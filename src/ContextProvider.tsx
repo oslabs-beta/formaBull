@@ -57,16 +57,16 @@ export const ContextProvider = ({ children }: any) => {
       id: 1,
       status: 'not-dropped',
       title: 'First Name',
-      data: `<label>Firstname</label>
-      <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
+      data: `<label>First Name</label>
+      <input name="firstName" ref={register({ required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} />
       {errors.firstName && "First name is required"}`
     },
     {
       id: 2,
       status: 'not-dropped',
       title: 'Last Name',
-      data: `<label>Lastname</label>
-      <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} />
+      data: `<label>Last Name</label>
+      <input name="lastName" ref={register({required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })} />
       {errors.lastName && "Last name is required"}`
     },
     {
@@ -74,22 +74,23 @@ export const ContextProvider = ({ children }: any) => {
       status: 'not-dropped',
       title: 'Password',
       data: `<label>Password</label>
-      <input name="password" type="password" ref="{register({required: true, pattern ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,16}$})} />`
+      <input type="password" placeholder="password" name="password" ref={register({required: true, max: 16, min: 8, maxLength: 16, pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/i})} />
+      {errors.password && "Password should contain at least 1 number, lowercase letter, uppercase letter, special character between 8 to 16 characters long"}`
     },
     {
       id: 4,
       status: 'not-dropped',
       title: 'Radio',
       data: `<label>Radio</label>
-      <input name="gender" type="radio" id="yes" value="yes" /><label for="yes">yes</label><br />
-      <input name="gender" type="radio" id="no" value="no" /><label for="no">no</label>`
+      <input name="question" type="radio" value="yes" ref={register}/>
+      <input name="question" type="radio" value="no" ref={register}/>`
     },
     {
       id: 5,
       status: 'not-dropped',
       title: 'Check Box',
       data: `<label>Checkbox</label>
-      <input name="check-box" type="checkbox" id="item1" name="item1" /><label for="item1">Item1</label><br />
+      <input name="check-box" type="checkbox" id="item1" name="item1" /><label for="item1">Item1</label>
       <input name="checkBox" type="checkbox" id="item2" name="item2" /><label for="item2">Item2</label>`
     },
     {
