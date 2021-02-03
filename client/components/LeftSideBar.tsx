@@ -30,7 +30,7 @@ const StyledTabs = withStyles({
 interface StyledTabProps {
   label: string;
   index: number;
-}
+};
 
 
 // Use withStyles for styling class-based components
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const LeftSideBar = (props:any) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
   
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -104,8 +104,7 @@ export const LeftSideBar = (props:any) => {
         )}
       </div>
     );
-  }
-   
+  };
 
   return (
     <div className={classes.root}>
@@ -134,5 +133,4 @@ export const LeftSideBar = (props:any) => {
       </div>
     </div>
   );
-}
-
+};
