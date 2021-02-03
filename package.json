@@ -1,7 +1,7 @@
 {
   "name": "production",
   "version": "1.0.0",
-  "description": "",
+  "description": "Forms with React and Hooks simplified. Click » Drag » Drop » Done",
   "main": "./dist/main.js",
   "scripts": {
     "dev:electron": "NODE_ENV=development webpack --config webpack.electron.config.js --mode development && electron .",
@@ -10,7 +10,8 @@
     "build:react": "NODE_ENV=production webpack --config webpack.react.config.js --mode production",
     "build": "npm run build:electron && npm run build:react",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",
@@ -20,8 +21,8 @@
       "node_modules/",
       "package.json"
     ],
-    "productName": "example",
-    "appId": "com.example.app",
+    "productName": "formaBull",
+    "appId": "com.electron.formaBull",
     "directories": {
       "output": "dist"
     }
@@ -44,7 +45,8 @@
     "react-hook-form": "^6.14.2",
     "react-router-dom": "^5.2.0",
     "react-scroll-to-bottom": "^4.1.0",
-    "react-stringify": "^1.0.0"
+    "react-stringify": "^1.0.0",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -55,8 +57,9 @@
     "@types/react-router-dom": "^5.1.7",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
-    "electron": "^11.2.0",
+    "electron": "^9.4.2",
     "electron-builder": "^22.9.1",
+    "electron-chromedriver": "^11.0.0",
     "electron-devtools-installer": "^3.1.1",
     "electron-react-devtools": "^0.5.3",
     "html-webpack-plugin": "^4.5.1",

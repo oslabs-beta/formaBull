@@ -30,7 +30,7 @@ const StyledTabs = withStyles({
 interface StyledTabProps {
   label: string;
   index: number;
-}
+};
 
 
 // Use withStyles for styling class-based components
@@ -104,35 +104,33 @@ export const LeftSideBar = (props:any) => {
         )}
       </div>
     );
-  }
-   
+  };
 
   return (
     <div className={classes.root}>
       <div className={classes.backgroundColor}>
         <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
-          <StyledTab label="Edit" index={0} />
-          <StyledTab label="Add" index={1} />
-          <StyledTab label="Style" index={2} />
+          <StyledTab label="Add" index={0} />
+          <StyledTab label="Style" index={1} />
+          <StyledTab label="Edit" index={2} />
         </StyledTabs>
         <Typography className={classes.padding} />
       </div>
       <div>
         <TabPanel value={value} index={0}>
-          <EditTab />
-        </TabPanel>
-      </div>
-      <div>
-        <TabPanel value={value} index={1}>
           <AddTab />
         </TabPanel>
       </div>
       <div>
+        <TabPanel value={value} index={1}>
+          <StyleTab />
+        </TabPanel>
+      </div>
+      <div>
         <TabPanel value={value} index={2}>
-         <StyleTab /> 
+         <EditTab /> 
         </TabPanel>
       </div>
     </div>
   );
-}
-
+};

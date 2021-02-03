@@ -3,12 +3,10 @@ import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/s
 import { Tabs, Tab, Box, Typography } from '@material-ui/core';
 import { CopyBlock, dracula, nord, monokai, irBlack, a11yDark, a11yLight, anOldHope, androidstudio, arta, atomOneDark, github, monoBlue, obsidian, ocean, rainbow } from 'react-code-blocks';
 import { Resizable } from 're-resizable';
-import { AppContext } from '../../src/'
-import { SelectTheme } from './SelectTheme'
+import { AppContext } from '../../src/';
+import { SelectTheme } from './SelectTheme';
 
-
-const defaultCSS = 
-`html {
+const defaultCSS = `html {
   height: 100%;
 }
 
@@ -78,24 +76,27 @@ input[type="submit"]:hover {
   background: #ec5990;
   color: white;
 }
-`
+`;
 
 export const CSSTab = (props:any) => {
+
 const {theme, setTheme }:any = useContext(AppContext);
+
 //match the theme object with selected string from Context Provider
-const galleryOfThemes = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack, 'nord': nord, 'a11yDark': a11yDark, 'a11yLight': a11yLight, 'anOldHope': anOldHope, 'androidstudio': androidstudio, 'arta': arta, 'atomOneDark': atomOneDark, 'github': github, 'monoBlue': monoBlue, 'obsidian': obsidian, 'ocean': ocean, 'rainbow': rainbow };
+const galleryOfThemes:any = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack, 'nord': nord, 'a11yDark': a11yDark, 'a11yLight': a11yLight, 'anOldHope': anOldHope, 'androidstudio': androidstudio, 'arta': arta, 'atomOneDark': atomOneDark, 'github': github, 'monoBlue': monoBlue, 'obsidian': obsidian, 'ocean': ocean, 'rainbow': rainbow };
+
 const selectedTheme = galleryOfThemes[theme];
 
   return (
     <div>
-    <SelectTheme />
-    <Resizable
-      defaultSize={{
-      width: 360,
-      height: 500
-      }}
-    >
-      <div className = 'output'>
+      <SelectTheme />
+      <Resizable
+        defaultSize={{
+        width: 360,
+        height: 500
+        }}
+      >
+        <div className = 'output'>
           <CopyBlock
             text={defaultCSS}
             showLineNumbers={true}
@@ -104,12 +105,12 @@ const selectedTheme = galleryOfThemes[theme];
             theme={selectedTheme}
             customStyle={{
               overflowY: 'scroll',
-              minWidth: '359',
+              minWidth: '360',
               maxHeight: '715'
             }}
           />
-          </div>
-  </Resizable>
-  </div>
+        </div>
+      </Resizable>
+    </div>
   );
-}
+};
