@@ -74,15 +74,16 @@ export const ContextProvider = ({ children }: any) => {
       status: 'not-dropped',
       title: 'Password',
       data: `<label>Password</label>
-      <input name="password" type="password" ref="{register({required: true, pattern ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,16}$})} />`
+      <input type="password" placeholder="password" name="password" ref={register({required: true, max: 16, min: 8, maxLength: 16, pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^ws]).{8,}$/i})} />
+      {errors.password && "Password should contain at least 1 number, lowercase letter, uppercase letter, special character between 8 to 16 characters long"}`
     },
     {
       id: 4,
       status: 'not-dropped',
       title: 'Radio',
       data: `<label>Radio</label>
-      <input name="gender" type="radio" id="yes" value="yes" /><label for="yes">yes</label><br />
-      <input name="gender" type="radio" id="no" value="no" /><label for="no">no</label>`
+      <input name="radio" type="radio" id="yes" value="yes" /><label for="yes">yes</label><br />
+      <input name="radio" type="radio" id="no" value="no" /><label for="no">no</label>`
     },
     {
       id: 5,
