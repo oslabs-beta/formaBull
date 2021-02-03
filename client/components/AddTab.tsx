@@ -11,7 +11,8 @@ export const AddTab = (props:any) => {
       {listOfDraggableElements
         .map((draggableElement: any, i: any) => (
           <CardCreator
-            key={(Math.random() * 2000) << 0}
+            // key={(Math.random() * 2000) << 0}
+            key={ 'leftsidebar' + draggableElement.id + Math.floor(Math.random() * 10000) }
             id={draggableElement.id}
             category={draggableElement.category}
             title={draggableElement.title}
