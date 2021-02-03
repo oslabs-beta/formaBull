@@ -14,13 +14,14 @@
 <h3 align="center"> Forms with React and Hooks simplified:<br> Click » Drag » Drop » Done.</h3>
 
 <h2>Description</h2>
-<p>formaBull is an Electron application for React Developers who want to quickly generate forms.  You can create the shape of your forms by dragging elements in, and style them in-app by adjusting sliders in the Style tab.  Forms will be saved to your account, and you can switch among them as needed.</p>
+<p>formaBull is an Electron application for React Developers who want to quickly generate forms.  You can create the shape of your forms by dragging elements in, and style them in-app by adjusting sliders in the Style tab.  Forms will be saved to your account, and you can switch among them as needed.
+<br>
+As you build up your form on the main canvas, you'll see the </p>
 
 ## Technologies Used
 React, Typescript, Electron, VS Code, Material-UI
 
-
-## Technical Description
+## Directions
 To run this app, do the following:
 * Fork this repository, copy the code from your repo clone, open your command line in VS Code and navigate to the parent folder you want to install,
 * run `git clone https://github.com/<YOURNAME>/formaBull.git`, 
