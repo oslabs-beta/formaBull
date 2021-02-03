@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
     border: 0,
     borderRadius: 3,
     color: 'black',
-    height: '110%',
+    height: '89%',
     width: 'auto',
     marginLeft: '50px',
     marginRight: '50px',
@@ -67,7 +67,10 @@ export const MainCanvas = (props:any) => {
     {/* {isActive ? 'Let it drop!' : 'Drop things here!'} */}
     {listOfDroppedElements
       .map((draggableElement: any, i: any) => (
-        <div style={{ width: '500px', margin: 'auto'}} >
+        <div 
+          key={(Math.random() * 1000) << 0}
+          style={{ width: '500px', margin: 'auto'}}
+        >
           <CardCreator 
           //took out draggableElement.id.toString()
           key={(Math.random() * 1000) << 0}
@@ -78,7 +81,6 @@ export const MainCanvas = (props:any) => {
         </div>
         ))
       }
-    {/* {props.children} ----?*/}
     </div>
   )
 }

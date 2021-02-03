@@ -15,6 +15,8 @@ interface StyledTabsProps {
 const StyledTabs = withStyles({
   indicator: {
     display: 'flex',
+    // top: '0px', 
+    position: 'absolute',
     justifyContent: 'center',
     backgroundColor: 'transparent',
     '& > span': {
