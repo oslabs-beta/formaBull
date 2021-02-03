@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Landing from './Landing'
-import { NavBar } from '../components/NavBar'
+import Landing from './Landing';
+import { NavBar } from '../components/NavBar';
 import SavedForms from './SavedForms';
-import Drafts from './Drafts'
-import Contact from './Contact'
-import Help from './Help'
-import TakeTour from './TakeTour'
-import '../../style.scss'
+import Drafts from './Drafts';
+import Contact from './Contact';
+import Help from './Help';
+import TakeTour from './TakeTour';
+import '../../style.scss';
 
 
 export default function App(props: any) {

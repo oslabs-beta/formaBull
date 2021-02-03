@@ -8,28 +8,28 @@ export const CodeTab = () => {
   /// use hook to check the current elements dropped on canva 
   const { listOfDroppedElements }: any = useContext(AppContext);
   const {theme, setTheme }:any = useContext(AppContext);
+
+console.log('max"s list request', listOfDroppedElements)
+//match the theme object with selected string from Context Provider
+const galleryOfThemes: object = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack, 'nord': nord, 'a11yDark': a11yDark, 'a11yLight': a11yLight, 'anOldHope': anOldHope, 'androidstudio': androidstudio, 'arta': arta, 'atomOneDark': atomOneDark, 'github': github, 'monoBlue': monoBlue, 'obsidian': obsidian, 'ocean': ocean, 'rainbow': rainbow };
+const selectedTheme: object = galleryOfThemes[theme];
+
+
   // get all output strings in an array
-  const injectFunc = (listofDraggableElements:any) => {
-    const result = [];
-    for(let obj of listOfDroppedElements) {
-      result.push(obj.data);
-    }
-    return result
+  const injectFunc = (listofDraggableElements: any) => {
+    const result: string[] = [];
+    const linkedListCode = listOfDroppedElements[0];
+    let cur = linkedListCode.head;
+    while (cur) {
+      result.push(cur.val.data);
+      cur = cur.next;
+    };
+    let cleanedUpResults = ``;
+    for (const each of result) cleanedUpResults += `\n\t` + each;
+    return cleanedUpResults;
   }
 
-
-
-//match the theme object with selected string from Context Provider
-const galleryOfThemes = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack, 'nord': nord, 'a11yDark': a11yDark, 'a11yLight': a11yLight, 'anOldHope': anOldHope, 'androidstudio': androidstudio, 'arta': arta, 'atomOneDark': atomOneDark, 'github': github, 'monoBlue': monoBlue, 'obsidian': obsidian, 'ocean': ocean, 'rainbow': rainbow };
-const selectedTheme = galleryOfThemes[theme];
-
   //display each output string on a separate line in right order
-  const componentResults = injectFunc(listOfDroppedElements);
-  let cleanedUpResults = ``;
-  for (const each of componentResults) {
-    cleanedUpResults += `\n\t` + each;
-  } 
-
   const parse = `import React from "react";
 import { useForm } from "react-hook-form";
   
@@ -39,21 +39,21 @@ import { useForm } from "react-hook-form";
     const onSubmit = data => console.log(data);
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>${cleanedUpResults}
+      <form onSubmit={handleSubmit(onSubmit)}>${injectFunc(listOfDroppedElements)}
       </form>
     );
   };`
 
   return (
     <div>
-    <SelectTheme />
-    <Resizable
-      defaultSize={{
-      width: 370,
-      height: 500,
-      }}
-    >
-      <div className = 'output'>
+      <SelectTheme />
+      <Resizable
+        defaultSize={{
+        width: 370,
+        height: 500,
+        }}
+      >
+        <div className = 'output'>
           <CopyBlock
             text={parse}
             showLineNumbers={true}
@@ -66,8 +66,8 @@ import { useForm } from "react-hook-form";
               maxHeight: '765'    
             }}
           />
-          </div>
-  </Resizable>
-  </div>
+        </div>
+      </Resizable>
+    </div>
   );
 }

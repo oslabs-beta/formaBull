@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core/';
-import CodeIcon from '@material-ui/icons/Code'
+import CodeIcon from '@material-ui/icons/Code';
 import BookmarkIcon from '@material-ui/icons/Bookmark'
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/icons/Menu';

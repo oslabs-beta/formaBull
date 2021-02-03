@@ -3,8 +3,8 @@ import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/s
 import { Tabs, Tab, Box, Typography } from '@material-ui/core';
 import { CopyBlock, dracula, nord, monokai, irBlack, a11yDark, a11yLight, anOldHope, androidstudio, arta, atomOneDark, github, monoBlue, obsidian, ocean, rainbow } from 'react-code-blocks';
 import { Resizable } from 're-resizable';
-import { AppContext } from '../../src/'
-import { SelectTheme } from './SelectTheme'
+import { AppContext } from '../../src/';
+import { SelectTheme } from './SelectTheme';
 
 
 const defaultCSS = 
@@ -88,14 +88,14 @@ const selectedTheme = galleryOfThemes[theme];
 
   return (
     <div>
-    <SelectTheme />
-    <Resizable
-      defaultSize={{
-      width: 360,
-      height: 500
-      }}
-    >
-      <div className = 'output'>
+      <SelectTheme />
+      <Resizable
+        defaultSize={{
+        width: 360,
+        height: 500
+        }}
+      >
+        <div className = 'output'>
           <CopyBlock
             text={defaultCSS}
             showLineNumbers={true}
@@ -108,8 +108,8 @@ const selectedTheme = galleryOfThemes[theme];
               maxHeight: '700'
             }}
           />
-          </div>
-  </Resizable>
-  </div>
+        </div>
+      </Resizable>
+    </div>
   );
 }
