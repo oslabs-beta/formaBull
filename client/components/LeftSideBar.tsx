@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const LeftSideBar = (props:any) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(0);
   
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
