@@ -28,3 +28,4 @@ Please try to minimize your pull requests to only check one box at a time.  If y
 ## Coding Standards
 
 We follow the [Airbnb](https://github.com/airbnb/javascript) style guide for best practices.
+
