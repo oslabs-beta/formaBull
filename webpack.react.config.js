@@ -7,13 +7,12 @@ module.exports = {
     mainFields: ["main", "module", "browser"]
   },
   entry: "./src/index.tsx",
-  target: "electron-renderer", //if this is removed you can view your app on the localhost
+  target: "electron-renderer",
   devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        // Exclude node modules because majority are ES5 compatible and it will save time to not go through all the modules to check for compatibility.
         exclude: /node_modules/,
         loader: "babel-loader",
         options: {
@@ -28,16 +27,16 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "../dist/renderer"),
-    historyApiFallback: true, // for routes when you have react app, there is a problem with reloading and will lead to the root and lose the history of your navigation. 
+    historyApiFallback: true,
     hot: true,
     port: 4000,
-    publicPath: "/", // add 
+    publicPath: "/",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].js",
   },
   plugins: [new HtmlWebpackPlugin({
-    template: './index.html' // creates on HTML file for development and production without it, it would create two different one for each envionement.
+    template: "./index.html"
   })],
 };

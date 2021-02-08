@@ -1,31 +1,21 @@
 import React, { useState } from 'react';
 import { AppContext } from './index';
-import { SelectTheme } from '../client/components/SelectTheme';
-import { MuiThemeProvider } from '@material-ui/core';
 
-
-//Our provider component takes a value (we’re calling it context, but it can be named anything) and then make it accessible to any of the children components. This value is essentially our global store. 
 export const ContextProvider = ({ children }: any) => {
   console.log('context provider children:', children)
   const elementDropped = (id: any) => {
-    //we can first check if this element has already been added to our form.
-    //for current simplicity, I'm going to assume we want no duplicates
-    //iterating through the array of dropped items to see if we already have an element like this.
-
     //check for existing elements to avoid duplicating
-    // for (let dropEle of listOfDroppedElements) {
-    //   if (dropEle.id === id) return;
-    // }
-    //deeply clone an object function
+    for (let dropEle of listOfDroppedElements) {
+      if (dropEle.id === id) return;
+    }
+    //function to deeply clone an object
     const deepCopyFunction = (inObject: any): any => {
       if (typeof inObject !== "object" || inObject === null) {
-        return inObject; // Return the value if inObject is not an object
+        return inObject;
       };
-      // Create an array or object to hold the values
       const outObject: object = Array.isArray(inObject) ? [] : {};
       for (const property in inObject) {
         let value = inObject[property];
-        // Recursively (deep) copy for nested objects, including arrays
         outObject[property] = deepCopyFunction(value);
       };
       return outObject;
@@ -34,73 +24,17 @@ export const ContextProvider = ({ children }: any) => {
     //iterate the draggable elements until we find the item we want, then set that onto list of dropped elements
     for (let i = 0; i < listOfDraggableElements.length; i++) {
       if (listOfDraggableElements[i].id === id) {
-        //we have the item
         const elementToInsert = deepCopyFunction(listOfDraggableElements.slice(i, i+1));
         console.log('element to insert', elementToInsert)
         elementToInsert[0].status = "dropped";
-        //setList is our way of pushing to the list 
-        // setListOfDroppedElements((oldArr):any => [...oldArr, elementToInsert[0]]);
-        //from the code block below, I copied this line.  I don't understand why it's needed after setting the list of dropped elements
-        // setListOfDroppedElements(listOfDroppedElements.filter((draggableElement, i) => draggableElement.id !== id).concat(elementToInsert));
-        
-        // WHAT IF ... setListOfDroppedElements wants to be an array of iterable elements, but I want to use a LinkedList.  If I add a LinkedList as a single object in the array ListOfDroppedElements, React will want to iterate through (there's only one object) and execute functionality on that object as if it's going to be the new React component.
-        //However, I'm hoping to have React parse through the LL after it knowingly iterated over only one item in the droppedElements array.
-        //setListofDroppedElements(LinkedList)
-        //iterate ListOfDropped,and for each iteration (there's only one) iterate through a given linkedlist.  It looks like O(N^2), but we'll only ever have one object in the array, so it's 1*whatever the length of the LL, which reduces to O(N)
-        //let's get to work...  after Hack Hour
-        
-        //time to iterate/traverse the linkedlist, so only the first array item.
-        // const mainCanvasLinkedList = listOfDroppedElements[0]; //object with nodes of values we want to check for id on
         listOfDroppedElements[0].add(elementToInsert[0]);
-        //call our add function
-        // mainCanvasLinkedList.add(elementToInsert[0])
         setListOfDroppedElements((listOfDroppedElements: any): any => {
           return [...listOfDroppedElements];
         });
-        
       }
     };
-  };  // <-- end of elementDropped function
+  };
 
-//filter over listOfDraggableElements by id, returns an array with one element(object)
-// const draggableElementArr = listOfDraggableElements.filter((draggableElement) => draggableElement.id === id);
-// //clone the array returned from filter() method 
-// console.log('draggable element array', draggableElementArr)
-// let clonedArr = JSON.parse(JSON.stringify(draggableElementArr));
-// clonedArr[0].status = "dropped"
-// // console.log('clonedArr', clonedArr[0]);
-// // Push method for React hooks, you can't use .push() method when using hooks.
-// setListOfDroppedElements((oldArr):any => [...oldArr, clonedArr[0]])
-//  console.log(listOfDraggableElements);
-// setListOfDroppedElements(listOfDroppedElements.filter((draggableElement, i) => draggableElement.id !== id).concat(clonedArr[0]));
-
-//const elementCycle = (id: any) => {
-//     console.log("element cycle is working!!!")
-//     //changed === to !==
-//     const draggableElement = listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id);
-
-//     console.log(`draggableElement:`, draggableElement);
-
-//     setListOfDraggableElements(listOfDraggableElements.filter((draggableElement, i) => draggableElement.id !== id).concat(draggableElement[0]))
-
-//     console.log("LIST OF DRAGGABLE ELEMENTS", listOfDraggableElements)
-
-//     //This is the push method for setting state that uses an array
-//     // setListOfDraggableElements(oldArr => 
-//     //     [...oldArr, draggableElement[0]]
-//     // )
-//     // console.log(listOfDraggableElements);
-//   }
-// setListOfDraggableElements(oldArr => 
-//     [...oldArr, draggableElement[0]]
-// )
-// console.log(listOfDraggableElements);
-// }
-
-//create a function that will make a clone of object(from listofDraggableElements) being dragged
-////return or place that clone in our listOfDroppedElements
-
-    ///// LL// 
     // class/function to create linked list on main
   class ComponentLinkedList {
     head: any;
@@ -112,10 +46,7 @@ export const ContextProvider = ({ children }: any) => {
       this.tail = null;
     };
   };
-  // const ComponentLinkedList = (): any => {
-  //   this.head = null;
-  //   this.tail = null;
-  // };
+
   // class/function to create a node on linked list
   class Node {
     val: object;
@@ -127,11 +58,7 @@ export const ContextProvider = ({ children }: any) => {
       this.prev = null;
     };
   };
-  // const Node = (val: object) => {
-  // this.val = val;
-  // this.next = null;
-  // this.prev = null;
-  // }
+
   // function to add to the end of linked list
   ComponentLinkedList.prototype.add = function (val: object) {
     const newNode = new Node(val);
@@ -145,14 +72,9 @@ export const ContextProvider = ({ children }: any) => {
     this.tail.next = newNode;
     this.tail = newNode;
   };
+
   // function to remove a node passed in
   ComponentLinkedList.prototype.remove = function (val: object) {
-  //traverse the list, starting with head bc why not
-  //keep track of the prev,the current and the next
-  //if we find a matching value,
-  //reassign the prev.next to be next,
-  //and reassign next.prev to be prev
-  //exit
   let curr = this.head;
   let prev = curr.prev;
   let next = curr.next;
@@ -161,29 +83,22 @@ export const ContextProvider = ({ children }: any) => {
     curr = curr.next;
     prev = prev.next;
   }
-  //curr equals val or curr is now null
-  //if curr is null, we never found our value,so just return
   if (!curr) return;
-  //curr now equals val
-  //if prev and next are null, we remove and return an empty list, so make head and tail null
   if (!prev && !next) {
     this.head = null;
     this.tail = null;
     return;
   }
-  //if just prev is null, we're removing the head
   if (!prev) {
     next.prev = null;
     this.head = curr.next;
     return;
   }
-  //no next means replace tail
   if (!next) {
     prev.next = null
     this.tail = prev;
     return;
   }
-  //we now are at the case where curr is the node to remove
   prev.next = next;
   next.prev = prev;
   }
@@ -326,11 +241,9 @@ export const ContextProvider = ({ children }: any) => {
   },
 ]);
 
-//if we set our state for the list of dropped elements to be not an empty array, but an array with an empty LL, we can edit the LL later
   const [listOfDroppedElements, setListOfDroppedElements] = useState([stateAsLinkedList]);
-  // set initial state for SelectTheme component
-  const [theme, setTheme] = useState('dracula'); 
 
+  const [theme, setTheme] = useState('dracula'); 
 
   //Global Store
   const context: any = {

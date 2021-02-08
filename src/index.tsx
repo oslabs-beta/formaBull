@@ -8,7 +8,6 @@ import App from '../client/containers/App'
 export const AppContext = React.createContext([])
 
 render(
-  // Any child component of our ContextProvider component will have access to the store.
   <ContextProvider>
     <DndProvider backend={HTML5Backend}>
       <App />,
