@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Tabs, Tab, Typography, Box, Container } from '@material-ui/core/';
 import { CodeTab } from './CodeTab';
@@ -8,14 +8,12 @@ import { CSSTab } from './CSSTab';
 interface StyledTabsProps {
   value: number;
   onChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
-}
-
+};
 
 // Use withStyles for styling class-based components
 const StyledTabs = withStyles({
   indicator: {
     display: 'flex',
-    // top: '0px', 
     position: 'absolute',
     justifyContent: 'center',
     backgroundColor: 'transparent',
@@ -24,16 +22,13 @@ const StyledTabs = withStyles({
       width: '100%',
       backgroundColor: '#000000',
     },
-
   },
 })((props: StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
-
 
 interface StyledTabProps {
   label: string;
   index: number;
-}
-
+};
 
 // Use withStyles for styling class-based components
 const StyledTab = withStyles((theme: Theme) =>
@@ -53,8 +48,7 @@ const StyledTab = withStyles((theme: Theme) =>
   }),
 )((props: StyledTabProps) => <Tab disableRipple {...props} />);
 
-
-// makeStyle/useStyle is used at function components as a hook. This is similar to intial state. Any custom material-ui styling can go here and then can be set/invoked inside a div's className
+// makeStyle/useStyle is used at function components
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
@@ -70,46 +64,42 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 
 export const RightSideBar = (props:any) => {
-  // This is used to set the hook/set state
   const classes = useStyles();
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
 
-  // TS interface for TabPanel function Props
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
-}
+  interface TabPanelProps {
+    children?: React.ReactNode;
+    index: any;
+    value: any;
+  };
 
-  // Differentiate content on each individual tab
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box >
-          {children}
-        </Box>
-      )}
-    </div>
-  );
-}
+  function TabPanel(props: TabPanelProps) {
+    const { children, value, index, ...other } = props;
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box >
+            {children}
+          </Box>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div>
       <div className={classes.root}>
-        {/* classes.backgroundColor hook being used for a specific div */}
         <div className={classes.backgroundColor}>
           <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example" >
             <StyledTab label="Code" index={0} />
@@ -128,4 +118,4 @@ function TabPanel(props: TabPanelProps) {
       </div>
     </div>
   );
-}
+};

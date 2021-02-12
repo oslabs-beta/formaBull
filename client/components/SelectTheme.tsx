@@ -1,12 +1,12 @@
-import React, {useContext, useState}  from 'react';
+import React, { useContext }  from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { CopyBlock, dracula, nord, monokai, irBlack, a11yDark, a11yLight, anOldHope, androidstudio, arta, atomOneDark, github, monoBlue, obsidian, ocean, rainbow } from 'react-code-blocks';
+import { dracula, nord, monokai, irBlack, a11yDark, a11yLight, anOldHope, androidstudio, arta, atomOneDark, github, monoBlue, obsidian, ocean, rainbow } from 'react-code-blocks';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { AppContext } from '../../src/'
+import { AppContext } from '../../src/';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-/// use galary to match theme background with selection field
+
 const galleryOfThemes = {'dracula': dracula, 'monokai': monokai, 'irBlack': irBlack, 'nord': nord, 'a11yDark': a11yDark, 'a11yLight': a11yLight, 'anOldHope': anOldHope, 'androidstudio': androidstudio, 'arta': arta, 'atomOneDark': atomOneDark, 'github': github, 'monoBlue': monoBlue, 'obsidian': obsidian, 'ocean': ocean, 'rainbow': rainbow };
 
 export const SelectTheme = () => {
@@ -33,7 +33,7 @@ export const SelectTheme = () => {
 
   return (
     <div>
-       <FormControl variant="filled" style = {{ background: galleryOfThemes[theme].backgroundColor }} className={classes.formControl}>
+      <FormControl variant="filled" style = {{ background: galleryOfThemes[theme].backgroundColor }} className={classes.formControl}>
         <InputLabel style = {{color:'white'}} id="demo-simple-select-filled-label">Select theme</InputLabel>
         <Select style = {{color:'white'}}
           labelId="demo-simple-select-filled-label"
@@ -62,6 +62,4 @@ export const SelectTheme = () => {
       </FormControl>
     </div>
   )
-}
-
-
+};

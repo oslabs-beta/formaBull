@@ -1,16 +1,15 @@
 import React from 'react';
 import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Tabs, Tab, Box, Typography, Container } from '@material-ui/core';
-import { AddTab } from '../components/AddTab'
-import { EditTab } from '../components/EditTab'
-import { StyleTab } from '../components/StyleTab'
+import { AddTab } from '../components/AddTab';
+import { EditTab } from '../components/EditTab';
+import { StyleTab } from '../components/StyleTab';
 
 
 interface StyledTabsProps {
   value: number;
   onChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
-}
-
+};
 
 // Use withStyles for styling class-based components
 const StyledTabs = withStyles({
@@ -26,12 +25,10 @@ const StyledTabs = withStyles({
   },
 })((props: StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
-
 interface StyledTabProps {
   label: string;
   index: number;
 };
-
 
 // Use withStyles for styling class-based components
 const StyledTab = withStyles((theme: Theme) =>
@@ -50,8 +47,6 @@ const StyledTab = withStyles((theme: Theme) =>
   }),
 )((props: StyledTabProps) => <Tab disableRipple {...props} />);
 
-
-// makeStyle/useStyle is used at function components as a hook. This is similar to intial state. Any custom material-ui styling can go here and then can be set/invoked inside a div's className
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 0.03,
@@ -67,23 +62,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-
 export const LeftSideBar = (props:any) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(1);
+ 
+  const [value, setValue] = React.useState(0);
   
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
 
-  // TS interface for TabPanel function Props
   interface TabPanelProps {
     children?: React.ReactNode;
     index: any;
     value: any;
   }
   
-  // Differentiate content on each individual tab
   function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
   
@@ -128,7 +121,7 @@ export const LeftSideBar = (props:any) => {
       </div>
       <div>
         <TabPanel value={value} index={2}>
-         <EditTab /> 
+        <EditTab /> 
         </TabPanel>
       </div>
     </div>
