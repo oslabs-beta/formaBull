@@ -5,9 +5,11 @@ export const ContextProvider = ({ children }: React) => {
   console.log('context provider children:', children)
   const elementDropped = (id: any) => {
     //check for existing elements to avoid duplicating
-    for (let dropEle of listOfDroppedElements) {
-      if (dropEle.id === id) return;
-    }
+      let cur = listOfDroppedElements[0].head;
+      while (cur) {
+        if (cur.val.id === id) return;
+        cur = cur.next;
+      };
     //function to deeply clone an object
     const deepCopyFunction = (inObject: any): any => {
       if (typeof inObject !== "object" || inObject === null) {

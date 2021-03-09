@@ -37,6 +37,7 @@ export const MainCanvas = (props:any) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: ItemTypes.CARD,
     drop: (item: any, monitor) => {
+      
       elementDropped(item.id)
     },
     collect: (monitor) => ({
@@ -49,7 +50,7 @@ export const MainCanvas = (props:any) => {
   
   const droppedLinkedList = () => {
     const createDroppedItem = (draggableElement: any, i: any) => (
-      <div key={'dropped'+ Math.floor(Math.random()*100000)} style={{ width: '500px', margin: 'auto'}} >
+      <div key={i * 100} style={{ width: '500px', margin: 'auto'}} >
         <CardCreator 
         id={draggableElement.id}
         category={draggableElement.category}
@@ -72,6 +73,7 @@ export const MainCanvas = (props:any) => {
     ref={drop}
     className={classes.root}
     >
+      {/* TODO this console log pops up a lot, does this mean all of maincanvas is being re-rendered every time I see this log?  */}
       {console.log('list of dropped: ', listOfDroppedElements[0].head)}
       {droppedLinkedList()}
     </div>
