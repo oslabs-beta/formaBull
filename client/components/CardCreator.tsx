@@ -39,7 +39,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export const CardCreator = (props:any) => {
+interface CardCreatorProps {
+  id: number;
+  category: string;
+  title: string;
+};
+
+export const CardCreator = (props: CardCreatorProps) => {
   const classes = useStyles();
 
   const[{ isDragging }, drag] = useDrag({
@@ -59,7 +65,7 @@ export const CardCreator = (props:any) => {
 
   return (
     <div ref={drag} style={{opacity: isDragging ? 0.5 : 1}}>
-      <Box className={classes.root} key={Math.floor(Math.random()*1000000)}>
+      <Box className={classes.root} key={props.id}>
         <DragIndicatorIcon style={{ color: 'white' }} className={classes.dragIndicator}/>
         <Typography className={classes.title}>{props.title}</Typography>
       </ Box>

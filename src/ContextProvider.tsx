@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppContext } from './index';
 
-export const ContextProvider = ({ children }: any) => {
+export const ContextProvider = ({ children }: React) => {
   console.log('context provider children:', children)
   const elementDropped = (id: any) => {
     //check for existing elements to avoid duplicating
