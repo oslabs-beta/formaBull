@@ -1,7 +1,7 @@
 # FRONT END COMPONENT SCHEMA 
 
 - App
-  - Landing - MVP
+- Landing - MVP
     - NavBar
       - CreateFrom
       - SavedFormsBtn

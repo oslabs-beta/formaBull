@@ -71,7 +71,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-
 export const NavBar = (props:any) => {
   const classes = useStyles();
 
@@ -100,4 +99,4 @@ export const NavBar = (props:any) => {
       </AppBar>
     </div>
   );
-}
+};

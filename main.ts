@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 // JS way, destructure
 const fixPath = require('fix-path');
+=======
+>>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
 const { app, BrowserWindow } = require('electron');
 import * as path from "path";
 import * as url from "url";
 
+<<<<<<< HEAD
  
 // console.log('before', process.env.PATH);//=> '/usr/bin'
  
@@ -16,21 +20,22 @@ import * as url from "url";
 //   app.quit();
 // }
 
+=======
+>>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
 app.on('ready', () => {
-  // once electron has started up, create a window.
   const window = new BrowserWindow({
     width: 1024, 
     height: 768,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false,//THIS HAS CONFLICT WITH TYPESCRIPT
+      contextIsolation: false,
       webSecurity: false,
     }
   });
   
-  // hide the default menu bar that comes with the browser window
-  window.setMenuBarVisibility(false); //NOTE changed from null to false
+  window.setMenuBarVisibility(false);
   
+<<<<<<< HEAD
 
 
 
@@ -50,6 +55,10 @@ app.on('ready', () => {
   // window.loadFile('index.html'); //This is just for production, not used for development
   // window.loadURL(`http://localhost:4000`); // development 
   // if(process.env.NODE_env === 'development') 
+=======
+  window.loadFile('index.html');
+  window.loadURL(`http://localhost:4000`); 
+>>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
   window.webContents.openDevTools(); 
 });
 
