@@ -27,9 +27,12 @@ test("Displays App window", async function () {
 });
 
 test("Header displays appropriate text", async function () {
-  const headerElement = await app.client.$("h1");
+  // const headerElement = await app.client.$("h1");
+  // let headerText = await headerElement.getText();
+  
+  let titleText = "formaBull | Hook 'em by the Horns";
+  let title = await app.client.$("title");
+  expect(title).toBe(titleText);
 
-  let headerText = await headerElement.getText();
-
-  expect(headerText).toBe("💖 Hello World!");
+  // expect(headerText).toBe("💖 Hello World!");
 });

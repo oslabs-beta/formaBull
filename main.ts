@@ -1,27 +1,7 @@
-<<<<<<< HEAD
-// JS way, destructure
-const fixPath = require('fix-path');
-=======
->>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
 const { app, BrowserWindow } = require('electron');
 import * as path from "path";
 import * as url from "url";
 
-<<<<<<< HEAD
- 
-// console.log('before', process.env.PATH);//=> '/usr/bin'
- 
-// fixPath();
- 
-// console.log('after', process.env.PATH);
-//=> '/usr/local/bin:/usr/bin'
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-// if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
-//   app.quit();
-// }
-
-=======
->>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
 app.on('ready', () => {
   const window = new BrowserWindow({
     width: 1024, 
@@ -35,30 +15,8 @@ app.on('ready', () => {
   
   window.setMenuBarVisibility(false);
   
-<<<<<<< HEAD
-
-
-
-  if (process.env.NODE_ENV === 'development') {
-    window.loadURL(`http://localhost:4000`);
-  } else {
-    window.loadFile(
-      url.format({
-      pathname: path.resolve(__dirname, './dist/renderer/index.html'),
-      protocol: 'file:',
-      slashes: true
-      }));
-  }
-  // const isDev = (process.env.NODE_ENV === 'development')
-  // window.loadURL(isDev ? `http://localhost:4000` : `app://${__dirname}/dist/renderer/index.html`);
-  // load a website to display
-  // window.loadFile('index.html'); //This is just for production, not used for development
-  // window.loadURL(`http://localhost:4000`); // development 
-  // if(process.env.NODE_env === 'development') 
-=======
   window.loadFile('index.html');
   window.loadURL(`http://localhost:4000`); 
->>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
   window.webContents.openDevTools(); 
 });
 

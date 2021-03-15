@@ -64,10 +64,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const LeftSideBar = (props:any) => {
   const classes = useStyles();
-<<<<<<< HEAD
-=======
  
->>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
   const [value, setValue] = React.useState(0);
   
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
