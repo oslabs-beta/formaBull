@@ -31,7 +31,7 @@ module.exports = {
     historyApiFallback: true, // for routes when you have react app, there is a problem with reloading and will lead to the root and lose the history of your navigation. 
     hot: true,
     port: 4000,
-    publicPath: "/", // add 
+    publicPath: "./", // add 
   },
   output: {
     path: path.resolve(__dirname, "./dist/renderer"),

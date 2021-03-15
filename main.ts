@@ -32,11 +32,7 @@ app.on('ready', () => {
   window.setMenuBarVisibility(false); //NOTE changed from null to false
   
 
-  console.log(url.format({
-    pathname: path.resolve(__dirname, './dist/renderer/index.html'),
-    protocol: 'file:',
-    slashes: true
-    }));
+
 
   if (process.env.NODE_ENV === 'development') {
     window.loadURL(`http://localhost:4000`);
@@ -48,6 +44,8 @@ app.on('ready', () => {
       slashes: true
       }));
   }
+  // const isDev = (process.env.NODE_ENV === 'development')
+  // window.loadURL(isDev ? `http://localhost:4000` : `app://${__dirname}/dist/renderer/index.html`);
   // load a website to display
   // window.loadFile('index.html'); //This is just for production, not used for development
   // window.loadURL(`http://localhost:4000`); // development 

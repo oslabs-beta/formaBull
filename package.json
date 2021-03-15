@@ -11,7 +11,11 @@
     "build": "npm run build:electron && npm run build:react",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "electron-builder install-app-deps",
+    "dist:mac": "npm run build:react  && electron-builder --mac",
+    "dist:win": "npm run build:react  && electron-builder --windows",
+    "dist:linux": "npm run build:react  && electron-builder --linux"
   },
   "author": "",
   "license": "MIT",
@@ -24,10 +28,19 @@
     "productName": "formaBull",
     "appId": "com.electron.formaBull",
     "directories": {
-      "output": "dist"
+      "output": "build"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools"
     },
     "win": {
       "target": "NSIS"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   },
   "dependencies": {

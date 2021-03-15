@@ -1,4 +1,3 @@
-
 const Application = require("spectron").Application;
 const electronPath = require("electron");
 const path = require("path");
