@@ -6,9 +6,7 @@ import { Resizable } from 're-resizable';
 import { AppContext } from '../../src/';
 import { SelectTheme } from './SelectTheme';
 
-
-const defaultCSS = 
-`html {
+const defaultCSS = `html {
   height: 100%;
 }
 

@@ -33,8 +33,8 @@ module.exports = {
     publicPath: "/",
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].js",
+    path: path.resolve(__dirname, "./dist/renderer"),
+    filename: "./js/[name].js",
   },
   plugins: [new HtmlWebpackPlugin({
     template: "./index.html"

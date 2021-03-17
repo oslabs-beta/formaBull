@@ -1,4 +1,8 @@
 dist
 node_modules
 package-lock.json
+<<<<<<< HEAD
+build
+=======
 .DS_Store
+>>>>>>> 141bf7b4609dc34b6545921116fd105f36963bbd
