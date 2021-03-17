@@ -8,14 +8,16 @@ beforeAll(() => {
   app = new Application({
     path: electronPath,
 
-    args: [path.join(__dirname, "../../")],
+    args: [path.join(__dirname, "..")]
   });
 
   return app.start();
-}, 15000);
+}, 50000);
+
 
 afterAll(function () {
   if (app && app.isRunning()) {
+    console.log(app)
     return app.stop();
   }
 });
@@ -23,16 +25,10 @@ afterAll(function () {
 test("Displays App window", async function () {
   let windowCount = await app.client.getWindowCount();
 
-  expect(windowCount).toBe(1);
+  expect(windowCount).toBe(2);
 });
 
-test("Header displays appropriate text", async function () {
-  // const headerElement = await app.client.$("h1");
-  // let headerText = await headerElement.getText();
-  
-  let titleText = "formaBull | Hook 'em by the Horns";
-  let title = await app.client.$("title");
-  expect(title).toBe(titleText);
-
-  // expect(headerText).toBe("💖 Hello World!");
+test("should launch app", async () => {
+  const title = await app.client.getTitle();
+  expect(title).toBe('formaBull|Hook\'em by the Horns'); 
 });
