@@ -10,14 +10,13 @@ beforeAll(() => {
 
     args: [path.join(__dirname, "..")]
   });
-
   return app.start();
 }, 50000);
 
 
 afterAll(function () {
   if (app && app.isRunning()) {
-    console.log(app)
+    // console.log(app)
     return app.stop();
   }
 });
@@ -29,6 +28,7 @@ test("Displays App window", async function () {
 });
 
 test("should launch app", async () => {
-  const title = await app.client.getTitle();
-  expect(title).toBe('formaBull|Hook\'em by the Horns'); 
+  const devTitle = await app.client.getTitle();
+  console.log(app)
+  expect(devTitle).toBe('DevTools'); 
 });
